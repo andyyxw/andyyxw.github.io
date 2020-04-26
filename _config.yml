@@ -33,7 +33,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render: 'README.md'
+skip_render: "README.md"
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -56,7 +56,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: ""
   per_page: 5
   order_by: -date
 
@@ -104,7 +104,7 @@ neat_html:
 neat_css:
   enable: true
   exclude:
-    - '*.min.css'
+    - "*.min.css"
 
 neat_js:
   enable: true
@@ -112,7 +112,7 @@ neat_js:
   output:
   compress:
   exclude:
-    - '*.min.js'
+    - "*.min.js"
 
 # 版权信息
 # addlink:
@@ -127,7 +127,7 @@ neat_js:
 deploy:
   type: git
   branch: master
-  message: 'blog update'
+  message: "blog update"
   repo:
     gitcafe: git@git.coding.net:Andyxw/Andyxw.coding.me.git
     gitee: git@gitee.com:andyxw/andyxw.git
