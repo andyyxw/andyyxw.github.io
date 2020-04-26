@@ -140,6 +140,6 @@ backup:
   theme: next
   message: update backup
   repository:
-    coding: git@git.coding.net:Andyxw/Andyxw.coding.me.git,backup
+    coding: git@e.coding.net:Andyxw/Andyxw.coding.me.git,backup
     gitee: git@gitee.com:andyxw/andyxw.git,backup
     github: git@github.com:andyyxw/andyyxw.github.io.git,backup
