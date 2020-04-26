@@ -129,9 +129,9 @@ deploy:
   branch: master
   message: "blog update"
   repo:
-    gitcafe: git@git.coding.net:Andyxw/Andyxw.coding.me.git
-    gitee: git@gitee.com:andyxw/andyxw.git
     github: git@github.com:andyyxw/andyyxw.github.io.git
+    coding: git@git.coding.net:Andyxw/Andyxw.coding.me.git
+    gitee: git@gitee.com:andyxw/andyxw.git
 
 # backup
 ## Docs：https://github.com/coneycode/hexo-git-backup
@@ -140,6 +140,6 @@ backup:
   theme: next
   message: update backup
   repository:
-    coding: git@e.coding.net:Andyxw/Andyxw.coding.me.git,backup
-    gitee: git@gitee.com:andyxw/andyxw.git,backup
     github: git@github.com:andyyxw/andyyxw.github.io.git,backup
+    coding: git@git.coding.net:Andyxw/Andyxw.coding.me.git,backup
+    gitee: git@gitee.com:andyxw/andyxw.git,backup
