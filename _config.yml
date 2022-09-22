@@ -137,7 +137,7 @@ deploy:
 ## Docs：https://github.com/coneycode/hexo-git-backup
 backup:
   type: git
-  theme: next
+  theme: next,landscape
   message: "chore: backup"
   repository:
     github: git@github.com:andyyxw/andyyxw.github.io.git,backup
