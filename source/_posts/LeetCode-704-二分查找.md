@@ -2,8 +2,8 @@
 title: LeetCode-704.二分查找
 tags:
   - LeetCode
-  - 二分法
   - 代码随想录
+  - 二分法
 categories:
   - 算法
 abbrlink: 4f45

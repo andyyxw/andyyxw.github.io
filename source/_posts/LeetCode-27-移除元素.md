@@ -3,6 +3,8 @@ title: LeetCode-27.移除元素
 tags:
   - LeetCode
   - 代码随想录
+  - 双指针
+  - 快慢指针
 categories:
   - 算法
 description: ' '

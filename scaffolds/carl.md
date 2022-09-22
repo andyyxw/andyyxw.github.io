@@ -3,6 +3,7 @@ title: {{ title }}
 tags:
   - LeetCode
   - 代码随想录
+  - 二分法
 categories:
   - 算法
 description: ' '
@@ -19,7 +20,8 @@ updated: {{ date }}
 - 看完 [代码随想录](https://programmercarl.com) 之后的想法：
 - 实现过程中遇到的困难：
 - 代码：
-  - ```ts
+  - 二分法
+    ```ts
       
     ```
     时间复杂度：O($\log n$)
