@@ -18,7 +18,7 @@ updated: {{ date }}
 - 思路
 - 看完 [代码随想录](https://programmercarl.com) 之后的想法：
 - 实现过程中遇到的困难：
-- 代码实现：
+- 代码：
   - ```ts
       
     ```
