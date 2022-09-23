@@ -76,6 +76,14 @@ footer:
     # Change the color of icon, using Hex Code.
     color: "#808080"
 
+  ages:
+    # site running time
+    enable: true
+    # birthday of your site
+    birthday: 20160101
+    # color of number
+    color: "#1890ff"
+
   # If not defined, will be used `author` from Hexo main config.
   copyright:
   # -------------------------------------------------------------
@@ -216,6 +224,7 @@ toc:
   enable: true
 
   # Automatically add list number to toc.
+  # 自动为文章目录添加行号
   number: true
 
   # If true, all words will placed on next lines if header width longer then sidebar width.
@@ -647,13 +656,13 @@ rating:
 # Show number of visitors to each article.
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: false
-  app_id: xSHUjY4wc7OhR4AaegpEiUEg-gzGzoHsz
-  app_key: hYzL4FYOwSPXCLVtkcLIyzxk
+  enable: true
+  app_id: ISFsnphMrUOU50gzo495Jasy-9Nh9j0Va # <your app id>
+  app_key: kCwxOqT1enDtEnxEk5EqpyVm # <your app key>
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in lc counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set the `security` to `false`.
-  security: false
+  security: true
   betterPerformance: true
 
 
@@ -672,9 +681,9 @@ firestore:
 busuanzi_count:
   enable: true
   total_visitors: true # 访客数
-  total_visitors_icon: user
+  # total_visitors_icon: user
   total_views: true # 访问量
-  total_views_icon: eye
+  # total_views_icon: eye
   post_views: true
   post_views_icon: eye
 

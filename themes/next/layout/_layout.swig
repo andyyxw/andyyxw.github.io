@@ -80,7 +80,7 @@
         </span>
       </div>
     {% endif %}
-	
+
     {% if theme.baidushare and theme.baidushare.type === "slide" %}
       <div>
         {% include '_partials/share/baidushare.swig' %}
@@ -117,5 +117,6 @@
   {% include '_third-party/exturl.swig' %}
   {% include '_third-party/bookmark.swig' %}
   {% include '_third-party/copy-code.swig' %}
+  {% include '_custom/custom.swig' %}
 </body>
 </html>
