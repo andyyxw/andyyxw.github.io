@@ -96,6 +96,11 @@ encrypt:
   abstract: 内容已经加密，请输入密码后阅读！</br>
   message: 这是篇有密码的博客
 
+# 在文末添加结束标记
+post_end_tag:
+  enabled: true  # 是否开启文末的本文结束标记
+  icon: paw # 结束标记之间的图标
+
 symbols_count_time:
   symbols: true # 统计单篇文章字数
   time: true # 估算单篇文章阅读时间

@@ -360,6 +360,12 @@
     {### END POST BODY ###}
     {#####################}
 
+    {% if config.post_end_tag.enabled and not is_index %}
+      <div>
+        {% include 'post-end-tag.swig' %}
+      </div>
+    {% endif %}
+
     {% if theme.wechat_subscriber.enabled and not is_index %}
       <div>
         {% include 'wechat-subscriber.swig' %}

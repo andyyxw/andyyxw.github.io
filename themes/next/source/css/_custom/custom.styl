@@ -3,6 +3,11 @@
   --card-bg-color: #f5f5f5;
 }
 
+//TOC目录默认全部展开
+.post-toc .nav .nav-child {
+  display: block;
+}
+
 //修改busuanzi数据颜色
 .footer .busuanzi-value {
   color: #1890ff;
@@ -18,10 +23,31 @@
     }
   }
 }
-
 .post-body a {
   &:not(.btn) {
     color: #1890ff;
     border-bottom: 1px solid #1890ff;
+  }
+}
+
+
+//自定义回到顶部样式
+.back-to-top {
+  right: 60px;
+  width: 70px;  //图片素材宽度
+  height: 900px;  //图片素材高度
+  top: -900px;
+  bottom: unset;
+  transition: all .5s ease-in-out;
+  background: url("/images/scroll.png");
+
+  //隐藏箭头图标
+  > i {
+    display: none;
+  }
+
+  &.back-to-top-on {
+    bottom: unset;
+    top: 100vh < (900px + 200px) ? calc( 100vh - 900px - 200px ) : 0px;
   }
 }

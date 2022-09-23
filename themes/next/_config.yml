@@ -265,6 +265,7 @@ sidebar:
   offset: 12
 
   # Back to top in sidebar (only for Pisces | Gemini).
+  #! 不要开启了，与自定义回到顶部样式冲突了
   b2t: false
 
   # Scroll percent label in b2t button.
@@ -349,8 +350,8 @@ related_posts:
   title: # custom header, leave empty to use the default one
   display_in_home: false
   params:
-    maxCount: 5 # Maximum count of a list
-    isDate: true # visible the date
+    maxCount: 10 # Maximum count of a list
+    # isDate: false # visible the date
     # isImage: false # visible the image
     # isExcerpt: false # visible the excerpt
     #PPMixingRate: 0.0 # Mixing ratio of popular posts and related posts
