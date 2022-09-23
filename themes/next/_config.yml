@@ -70,11 +70,11 @@ footer:
   icon:
     # Icon name in fontawesome, see: https://fontawesome.com/v4.7.0/icons
     # `heart` is recommended with animation in red (#ff0000).
-    name: user
+    name: heart
     # If you want to animate the icon, set it to true.
     animated: true
     # Change the color of icon, using Hex Code.
-    color: "#808080"
+    color: "#ff0000"
 
   ages:
     # site running time
@@ -113,7 +113,7 @@ footer:
 canonical: true
 
 # Change headers hierarchy on site-subtitle (will be main site description) and on all post/pages titles for better SEO-optimization.
-seo: false
+seo: true
 
 # If true, will add site-subtitle to index page, added in main hexo config.
 # subtitle: Subtitle
@@ -143,7 +143,7 @@ menu:
 # Enable/Disable menu icons / item badges.
 menu_settings:
   icons: true
-  badges: false
+  badges: true
 
 # ---------------------------------------------------------------
 # Scheme Settings
@@ -172,7 +172,7 @@ social:
   GitHub: https://github.com/andyyxw || github
   linkedin: https://www.linkedin.com/in/andy-y-7618a1166 || linkedin-square
   QQ: tencent://AddContact/?fromId=45&fromSubId=1&subcmd=all&uin=1779391833&website=www.oicqzone.com || qq
-  知乎: https://www.zhihu.com/people/andyyxw
+  知乎: https://www.zhihu.com/people/andyyxw || zhihu
   E-Mail: mailto:andyyxw@163.com || envelope
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
@@ -185,8 +185,8 @@ social:
 
 social_icons:
   enable: true
-  icons_only: false
-  transition: false
+  icons_only: true
+  transition: true # 是否开启过渡效果，鼠标移上去会显示过渡效果
   # Dependencies: exturl: true in Tags Settings section below.
   # To encrypt links above use https://www.base64encode.org
   # Example encoded link: `GitHub: aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQ= || github`
@@ -213,7 +213,7 @@ avatar:
   # You can also use other linking images.
   url: /avatar.jpg
   # If true, the avatar would be dispalyed in circle.
-  rounded: false
+  rounded: true
   # The value of opacity should be choose from 0 to 1 to set the opacity of the avatar.
   opacity: 1
   # If true, the avatar would be rotated with the cursor.
@@ -264,11 +264,10 @@ sidebar:
   b2t: false
 
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
-
 
 # ---------------------------------------------------------------
 # Post Settings
@@ -281,6 +280,7 @@ scroll_to_more: true
 save_scroll: true
 
 # Automatically excerpt description in homepage as preamble text.
+# 自动摘录描述在主页作为序言文本
 excerpt_description: true
 
 # Automatically Excerpt. Not recommend.
@@ -292,36 +292,38 @@ auto_excerpt:
 # Post meta display settings
 # 文章标题下方的信息栏
 post_meta:
-  item_text: true
-  created_at: true
-  updated_at:
-    # 显示更新时间
+  item_text: true # 是否显示每项的文字
+  created_at: true # 是否显示发表时间
+  updated_at: # 是否显示更新时间
     enabled: true
     # If true, show updated date label only if `updated date` different from 'created date' (post edited in another day than was created).
     # And if post will edited in same day as created, edited time will show in popup title under created time label.
     # If false show anyway, but if post edited in same day, show only edited time.
     # 与创建时间不同时才显示
     another_day: true
-  categories: true
+  categories: true # 是否显示分类
 
 # Post wordcount display settings
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
 symbols_count_time:
-  separated_meta: false # 统计信息换行显示
-  item_text_post: true # 文章统计信息中是否显示“本文字数/阅读时长”等描述文字
-  item_text_total: false # 站点统计信息中是否显示“本文字数/阅读时长”等描述文字
+  separated_meta: false # 是否另起一行显示
+  item_text_post: true # # 文章统计数量前是否显示文字描述（本文字数、阅读时长）
+  item_text_total: true # 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）
   awl: 4 # Average Word Length：平均字符长度
   wpm: 275 # Words Per Minute：阅读速度
+  suffix: "mins."
 
 codeblock:
   # Manual define the border radius in codeblock
   # Leave it empty for the default 1
-  border_radius:
+  border_radius: 8
   # Add copy button on codeblock
   copy_button:
-    enable: false
+    enable: true
     # Show text copy result
-    show_result: false
+    show_result: true
+    # Available values: default | flat | mac
+    style: mac
 
 # Wechat Subscriber
 #wechat_subscriber:
@@ -382,8 +384,8 @@ custom_logo:
 
 # Code Highlight theme
 # Available values: normal | night | night eighties | night blue | night bright
-# https://github.com/chriskempson/tomorrow-theme
-highlight_theme: night eighties
+# See: https://github.com/chriskempson/tomorrow-theme
+highlight_theme: night bright
 
 # Enable "cheers" for archive page.
 cheers_enabled: true
@@ -730,19 +732,24 @@ algolia_search:
 # Local search
 # Dependencies: https://github.com/next-theme/hexo-generator-searchdb
 local_search:
-  enable: true
+  enable: true # 是否启用本地搜索
   # if auto, trigger search by changing input
   # if manual, trigger search by pressing enter key or search button
+  # 选auto则搜索时输入自动出现结果，选manual则搜索时输入完成需手动点击回车或搜索按钮出结果
   trigger: auto
   # show top n results per article, show all results by setting to -1
+  # 显示每篇文章的top n个结果，通过设置为-1显示所有结果
   top_n_per_article: 1
   # unescape html strings to the readable one
-  unescape: false
+  # 将html字符串转换为可读的字符串
+  unescape: true
+  preload: true # 在页面加载时预加载搜索数据
 
 # Bookmark Support
 # Dependencies: https://github.com/theme-next/theme-next-bookmark
 bookmark:
-  enable: false
+  enable: true
+  color: "#222"
   # if auto
   #   - save the reading position when closing the page
   #   - or clicking the bookmark-icon
@@ -787,9 +794,10 @@ tabs:
 # Reading progress bar
 # Dependencies: https://github.com/theme-next/theme-next-reading-progress
 reading_progress:
-  enable: false
-  color: "#37c6c0"
-  height: 2px
+  enable: true
+  position: top
+  color: "#1890ff"
+  height: 3px
 
 
 #! ---------------------------------------------------------------
@@ -800,8 +808,8 @@ reading_progress:
 # Use velocity to animate everything.
 motion:
   enable: true
-  async: false
-  transition:
+  async: true # 是否异步执行动画，准确来说就是是否同时执行动画
+  transition: # 过渡效果
     # Transition variants:
     # fadeIn | fadeOut | flipXIn | flipXOut | flipYIn | flipYOut | flipBounceXIn | flipBounceXOut | flipBounceYIn | flipBounceYOut
     # swoopIn | swoopOut | whirlIn | whirlOut | shrinkIn | shrinkOut | expandIn | expandOut
@@ -809,18 +817,18 @@ motion:
     # slideUpIn | slideUpOut | slideDownIn | slideDownOut | slideLeftIn | slideLeftOut | slideRightIn | slideRightOut
     # slideUpBigIn | slideUpBigOut | slideDownBigIn | slideDownBigOut | slideLeftBigIn | slideLeftBigOut | slideRightBigIn | slideRightBigOut
     # perspectiveUpIn | perspectiveUpOut | perspectiveDownIn | perspectiveDownOut | perspectiveLeftIn | perspectiveLeftOut | perspectiveRightIn | perspectiveRightOut
-    post_block: fadeIn
-    post_header: slideDownIn
-    post_body: slideDownIn
+    post_block: fadeIn # 包裹文章的外部盒子
+    post_header: slideDownIn # 文章的标题
+    post_body: slideDownIn # 文章的内容
     coll_header: slideLeftIn
     # Only for Pisces | Gemini.
-    sidebar: slideUpIn
+    sidebar: slideUpIn # 侧边栏（只有Pisces和Gemini主题有效）
 
 # Fancybox. There is support for old version 2 and new version 3.
 # Please, choose only any one variant, do not need to install both.
 # For install 2.x: https://github.com/theme-next/theme-next-fancybox
 # For install 3.x: https://github.com/theme-next/theme-next-fancybox3
-fancybox: false
+fancybox: true
 
 # Added switch option for separated repo in 6.0.0.
 # Dependencies: https://github.com/theme-next/theme-next-fastclick
@@ -832,24 +840,12 @@ lazyload: false
 
 # Progress bar in the top during page loading.
 # Dependencies: https://github.com/theme-next/theme-next-pace
-pace: false
-# Themes list:
-#pace-theme-big-counter
-#pace-theme-bounce
-#pace-theme-barber-shop
-#pace-theme-center-atom
-#pace-theme-center-circle
-#pace-theme-center-radar
-#pace-theme-center-simple
-#pace-theme-corner-indicator
-#pace-theme-fill-left
-#pace-theme-flash
-#pace-theme-loading-bar
-#pace-theme-mac-osx
-#pace-theme-minimal
-# For example
-# pace_theme: pace-theme-center-simple
-pace_theme: pace-theme-minimal
+pace:
+  enable: true
+  # Themes list:
+  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple
+  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal
+  theme: minimal
 
 # Canvas-nest
 # Dependencies: https://github.com/theme-next/theme-next-canvas-nest
@@ -891,8 +887,8 @@ vendors:
 
   # Internal version: 2.1.5
   # See: http://fancyapps.com/fancybox/
-  fancybox:
-  fancybox_css:
+  fancybox: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js
+  fancybox_css: //cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css
 
   # Internal version: 1.0.6
   # See: https://github.com/ftlabs/fastclick
@@ -928,12 +924,13 @@ vendors:
   # Or use direct links below:
   # pace: //cdn.bootcss.com/pace/1.0.2/pace.min.js
   # pace_css: //cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css
-  pace:
-  pace_css:
+  pace: //cdn.jsdelivr.net/npm/pace-js@1/pace.min.js
+  pace_css: //cdn.jsdelivr.net/npm/pace-js@1/themes/blue/pace-theme-minimal.css
 
   # Internal version: 1.0.0
   # https://github.com/hustcc/canvas-nest.js
-  canvas_nest: false
+  canvas_nest: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest.min.js
+  canvas_nest_nomobile: //cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1/canvas-nest-nomobile.min.js
 
   # Internal version: 1.0.0
   # See: https://github.com/theme-next/theme-next-three
@@ -966,13 +963,13 @@ vendors:
   # bookmark
   # Internal version: 1.0.0
   # https://github.com/theme-next/theme-next-bookmark
-  bookmark:
+  bookmark: https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js
 
   # reading_progress
   # Internal version: 1.0
   # https://github.com/theme-next/theme-next-reading-progress
   # Example: https://cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1.1/reading_progress.min.js
-  reading_progress:
+  reading_progress: //cdn.jsdelivr.net/gh/theme-next/theme-next-reading-progress@1/reading_progress.min.js
 
   # valine comment
   # Example: https://cdn.jsdelivr.net/npm/valine@1.1.8/dist/Valine.min.js

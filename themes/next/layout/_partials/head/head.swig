@@ -79,7 +79,8 @@
   {% set font_awesome_uri = theme.vendors.fontawesome %}
 {% endif %}
 {# <link href="{{ font_awesome_uri }}" rel="stylesheet" type="text/css" /> #}
-<script src="https://use.fontawesome.com/a28711cc61.js"></script>
+{# <script src="https://use.fontawesome.com/a28711cc61.js"></script> #}
+<script src="https://kit.fontawesome.com/a943e1c7f1.js" crossorigin="anonymous"></script>
 
 <link href="{{ url_for(theme.css) }}/main.css?v={{ version }}" rel="stylesheet" type="text/css" />
 
