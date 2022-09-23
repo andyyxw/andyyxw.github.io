@@ -5,6 +5,7 @@ categories:
   - 前端
   - React
 description: 本文介绍传统组件间通信与React中的组件通信4种方式
+related_posts: true
 abbrlink: ac71
 date: 2018-08-17 16:39:36
 ---

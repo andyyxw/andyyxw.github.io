@@ -7,6 +7,7 @@ categories:
 abbrlink: '992'
 date: 2018-07-26 10:23:10
 description: React中的state和props
+related_posts: true
 ---
 
 整理一下React中关于state和props的知识点。
@@ -182,7 +183,7 @@ this.setState({
 区别
 --
 
-1.  `state`是组件自己管理数据，控制自己的状态，可变；
-2.  `props`是外部传入的数据参数，不可变；
-3.  没有`state`的叫做无状态组件，有`state`的叫做有状态组件；
-4.  多用`props`，少用`state`。也就是多写无状态组件。
+1. `state`是组件自己管理数据，控制自己的状态，可变；
+2. `props`是外部传入的数据参数，不可变；
+3. 没有`state`的叫做无状态组件，有`state`的叫做有状态组件；
+4. 多用`props`，少用`state`。也就是多写无状态组件。

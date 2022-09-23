@@ -9,6 +9,7 @@ tags:
 categories: 
     - 服务器
 description: Linux服务器重置密码
+related_posts: true
 ---
 有时候会忘记服务器密码，但是可以通过官网面板等方式连上时，可使用下面的命令修改root密码：
 整段赋值下面的命令（"新密码"处 替换为要修改的密码）：

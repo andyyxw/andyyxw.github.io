@@ -9,6 +9,9 @@
 override: false
 
 # Allow to cache content generation. Introduced in NexT v6.0.0.
+#! 与bookmark冲突，建议只用cache
+#! cache是浏览器的行为，只能记住最新一篇文章的状态，切换了文章就丢失了。
+#! 而bookmark是在localStorage中记录每篇文章的滚动位置，不会丢失。
 cache:
   enable: true
 
@@ -338,18 +341,19 @@ codeblock:
 #alipay: /images/alipay.jpg
 #bitcoin: /images/bitcoin.png
 
+# 是否显示《相关文章》
 # Related popular posts
 # Dependencies: https://github.com/tea3/hexo-related-popular-posts
 related_posts:
-  enable: false
+  enable: true
   title: # custom header, leave empty to use the default one
   display_in_home: false
   params:
-    maxCount: 5
-    #PPMixingRate: 0.0
-    #isDate: false
-    #isImage: false
-    #isExcerpt: false
+    maxCount: 5 # Maximum count of a list
+    isDate: true # visible the date
+    # isImage: false # visible the image
+    # isExcerpt: false # visible the excerpt
+    #PPMixingRate: 0.0 # Mixing ratio of popular posts and related posts
 
 # Declare license on posts
 post_copyright:
@@ -751,14 +755,17 @@ local_search:
 
 # Bookmark Support
 # Dependencies: https://github.com/theme-next/theme-next-bookmark
+#! 与cache冲突，建议只用cache。
+#! cache是浏览器的行为，只能记住最新一篇文章的状态，切换了文章就丢失了。
+#! 而bookmark是在localStorage中记录每篇文章的滚动位置，不会丢失。
 bookmark:
-  enable: true
+  enable: false
   color: "#222"
   # if auto
   #   - save the reading position when closing the page
   #   - or clicking the bookmark-icon
-  # if manual, only save it by clicking the bookmark-icon
-  save: auto
+  # if manual, only save it by clicking the bookmark-icon。不建议manual，如果想移除当前页的bookmark，需要滚动到顶部再点bookmark按钮 才会重置存储好的数据
+  save: manual
 
 
 # ---------------------------------------------------------------

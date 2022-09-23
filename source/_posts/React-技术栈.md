@@ -7,6 +7,7 @@ categories:
 abbrlink: 4a9b
 date: 2018-07-26 10:26:34
 description: React技术栈——阮一峰
+related_posts: true
 ---
 
 # React 技术栈
@@ -16,7 +17,6 @@ React 是目前最热门的前端框架。
 - Facebook 公司2013年推出
 - 现在最好的社区支持和生态圈
 - 大量的第三方工具
-
 
 ![](./images/react-logo.png)
 
@@ -192,7 +192,7 @@ componentDidMount() {
 
 React 的一大优势，就是网上有很多已经写好的组件库，可以使用。
 
-React-Bootstrap：https://react-bootstrap.github.io/
+React-Bootstrap：<https://react-bootstrap.github.io/>
 
 ![](./images/react-bootstrap.png)
 
@@ -200,7 +200,7 @@ React-Bootstrap：https://react-bootstrap.github.io/
 
 ## 示例：ReCharts
 
-ReCharts 是一个 React 图表组件库。http://recharts.org/
+ReCharts 是一个 React 图表组件库。<http://recharts.org/>
 
 浏览器打开`demos/recharts-demo/index.html`，按照[《操作说明》](../demos/README.md#recharts)，仔细查看源码，体会 JSX 语法对表达复杂组件的优势。
 
@@ -473,4 +473,3 @@ ReactDOM.render(
   document.body.appendChild(document.createElement('div'))
 );
 ```
-

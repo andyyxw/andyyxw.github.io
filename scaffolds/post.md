@@ -2,8 +2,9 @@
 title: {{ title }}
 tags: 
 categories: 
-copyright: true
 description: 
+related_posts: true
+copyright: true
 date: {{ date }}
 updated: {{ date }}
 ---

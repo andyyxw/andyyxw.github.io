@@ -8,14 +8,16 @@ categories:
     - 前端
     - React
 description: 为什么要了解 Function 写法的组件呢？因为它正在变得越来越重要。
+related_posts: true
 abbrlink: ecb7
 date: 2019-09-04 21:08:02
 ---
 
 
-> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 https://zhuanlan.zhihu.com/p/59558396
+> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 <https://zhuanlan.zhihu.com/p/59558396>
 
 1. 引言
+
 -----
 
 为什么要了解 Function 写法的组件呢？因为它正在变得越来越重要。
@@ -27,6 +29,7 @@ date: 2019-09-04 21:08:02
 > 顺带一提，以后会用 Function Component 代替 Stateless Component 的说法，原因是：自从 Hooks 出现，函数式组件功能在不断丰富，函数式组件不再需要强调其无状态特性，因此叫 Function Component 更为恰当。
 
 2. 概述
+
 -----
 
 原文事先申明：并没有对 Function 与 Classes 进行优劣对比，而仅仅进行特性对比，所以不接受任何吐槽。
@@ -194,14 +197,15 @@ function MessageThread() {
 这说明了利用 Function Component + Hooks 可以实现 Class Component 做不到的 capture props、capture value，而且 React 官方也推荐 [新的代码使用 Hooks 编写](https://reactjs.org/docs/hooks-faq.html#do-i-need-to-rewrite-all-my-class-components)。
 
 3. 精读
+
 -----
 
 原文 [how-are-function-components-different-from-classes](https://overreacted.io/how-are-function-components-different-from-classes/) 从一个侧面讲述了 Function Component 与 Class Component 的不同点，之所以将 Function Component 与 Class Component 相提并论，几乎都要归功于 Hooks API 的出现，有了 Hooks，Function Component 的能力才得以向 Class Component 看齐。
 
 关于 React Hooks，之前的两篇精读分别有过介绍：
 
-*   [精读《React Hooks》](https://github.com/dt-fe/weekly/blob/master/79.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%E3%80%8B.md)
-*   [精读《怎么用 React Hooks 造轮子》](https://github.com/dt-fe/weekly/blob/master/80.%E7%B2%BE%E8%AF%BB%E3%80%8A%E6%80%8E%E4%B9%88%E7%94%A8%20React%20Hooks%20%E9%80%A0%E8%BD%AE%E5%AD%90%E3%80%8B.md)
+* [精读《React Hooks》](https://github.com/dt-fe/weekly/blob/master/79.%E7%B2%BE%E8%AF%BB%E3%80%8AReact%20Hooks%E3%80%8B.md)
+* [精读《怎么用 React Hooks 造轮子》](https://github.com/dt-fe/weekly/blob/master/80.%E7%B2%BE%E8%AF%BB%E3%80%8A%E6%80%8E%E4%B9%88%E7%94%A8%20React%20Hooks%20%E9%80%A0%E8%BD%AE%E5%AD%90%E3%80%8B.md)
 
 但是，虽然 Hook 已经发布了稳定版本，但周边生态跟进还需要时间（比如 `useRouter`）、最佳实践整理还需要时间，因此不建议重构老代码。
 
@@ -392,6 +396,7 @@ function FunctionComponent(props) {
 掌握了这些，Function Component 使用起来与 Class Component 就几乎没有差别了！
 
 4. 总结
+
 -----
 
 Function Component 功能已经可以与 Class Component 媲美了，但目前最佳实践比较零散，官方文档推荐的一些解决思路甚至不比社区第三方库的更好，可以预料到，Class Component 的功能会被五花八门的实现出来，那些没有被收纳进官方的 Hooks 乍看上去可能会眼花缭乱。
@@ -408,7 +413,7 @@ Function Component 功能已经可以与 Class Component 媲美了，但目前�
 
 **special Sponsors**
 
-*   [DevOps 全流程平台](https://e.coding.net/?utm_source=weekly)
+* [DevOps 全流程平台](https://e.coding.net/?utm_source=weekly)
 
 > 版权声明：自由转载 - 非商用 - 非衍生 - 保持署名（[创意共享 3.0 许可证](https://creativecommons.org/licenses/by-nc-nd/3.0/deed.zh)）
 

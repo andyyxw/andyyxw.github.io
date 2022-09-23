@@ -5,10 +5,11 @@ date: 2019-09-23 17:31:15
 tags:
 categories:
 description: 30分钟精通React Hooks
+related_posts: true
 ---
 
 
-> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 https://juejin.im/post/5be3ea136fb9a049f9121014
+> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 <https://juejin.im/post/5be3ea136fb9a049f9121014>
 
 你还在为该使用无状态组件（Function）还是有状态组件（Class）而烦恼吗？ ——拥有了 hooks，你再也不需要写 Class 了，你的所有组件都将是 Function。
 
@@ -77,7 +78,7 @@ Hooks 本质上就是一类特殊的函数，它们可以为你的函数型组�
 React 为什么要搞一个 Hooks？
 --------------------
 
-### 想要复用一个有状态的组件太麻烦了！
+### 想要复用一个有状态的组件太麻烦了
 
 我们都知道 react 都核心思想就是，将一个页面拆成一堆独立的，可复用的组件，并且用自上而下的单向数据流的形式将这些组件串联起来。但假如你在大型的工作项目中用 react，你会发现你的项目中实际上很多 react 组件冗长且难以复用。尤其是那些写成 class 的组件，它们本身包含了状态（state），所以复用这类组件就变得很麻烦。
 
@@ -146,11 +147,11 @@ export default withUser(UserPage);
 
 ![](https://user-gold-cdn.xitu.io/2018/11/9/166f7bc8480d53c6?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
-### 生命周期钩子函数里的逻辑太乱了吧！
+### 生命周期钩子函数里的逻辑太乱了吧
 
 我们通常希望一个函数只做一件事情，但我们的生命周期钩子函数里通常同时做了很多事情。比如我们需要在`componentDidMount`中发起 ajax 请求获取数据，绑定一些事件监听等等。同时，有时候我们还需要在`componentDidUpdate`做一遍同样的事情。当项目变复杂后，这一块的代码也变得不那么直观。
 
-### classes 真的太让人困惑了！
+### classes 真的太让人困惑了
 
 我们用 class 来创建 react 组件时，还有一件很麻烦的事情，就是 this 的指向问题。为了保证 this 的指向正确，我们要经常写这样的代码：`this.handleClick = this.handleClick.bind(this)`，或者是这样的代码：`<button onClick={() => this.handleClick(e)}>`。一旦我们不小心忘了绑定 this，各种 bug 就随之而来，很麻烦。
 
@@ -395,7 +396,7 @@ class Example extends React.Component {
 
 同时，由于前文所说 hooks 可以反复多次使用，相互独立。所以我们合理的做法是，给每一个副作用一个单独的 useEffect 钩子。这样一来，这些副作用不再一股脑堆在生命周期钩子里，代码变得更加清晰。
 
-### useEffect 做了什么？###
+### useEffect 做了什么？ ###
 
 我们再梳理一遍下面代码的逻辑：
 

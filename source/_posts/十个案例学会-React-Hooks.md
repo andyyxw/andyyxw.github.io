@@ -8,6 +8,7 @@ categories:
   - React
   - React Hooks
 description: 通过十个案例来认识理解并可以熟练运用 React Hooks 大部分特性
+related_posts: true
 abbrlink: cca6
 date: 2019-09-04 11:06:33
 ---
@@ -245,7 +246,7 @@ function HeaderBar() {
 }
 ```
 
-## useReducer 
+## useReducer
 
 useReducer 这个 Hooks 在使用上几乎跟 Redux/React-Redux 一模一样，唯一缺少的就是无法使用 redux 提供的中间件。我们将上述的计时器组件改写为 useReducer，[在线 Demo](https://codesandbox.io/s/727o0kr4yx)
 
@@ -439,7 +440,7 @@ function MessageThread() {
 ```
 
 在点击 Send 按钮后，再次修改输入框的值，3 秒后的输出依然是点击前输入框的值。这就是所谓的 capture value 的特性。而在类组件中 3 秒后输出的就是修改后的值，因为这时候 message 是挂载在 this 变量上，它保留的是一个引用值，对 this 属性的访问都会获取到最新的值。讲到这里你应该就明白了，useRef 创建一个引用，就可以有效规避 React Hooks 中 Capture Value 特性。
- 
+
 ```javascript
 function MessageThread() {
   const latestMessage = useRef("");
@@ -486,7 +487,6 @@ function App() {
 ```
 
 通过这种方式，App 组件可以获得子组件的 input 的 DOM 节点。
-
 
 ## useLayoutEffect 同步执行副作用
 

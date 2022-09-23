@@ -352,7 +352,7 @@
       {% endif  %}
     </div>
 
-    {% if theme.related_posts.enable and (theme.related_posts.display_in_home or not is_index) %}
+    {% if theme.related_posts.enable and (theme.related_posts.display_in_home or not is_index) and post.related_posts %}
       {% include 'post-related.swig' with { post: post } %}
     {% endif %}
 

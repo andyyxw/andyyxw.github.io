@@ -8,12 +8,13 @@ categories:
   - React
   - React Hooks
 description: RWieruch - What are React Hooks
+related_posts: true
 abbrlink: ef81
 date: 2019-08-21 17:31:54
 ---
 
 
-> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 https://www.robinwieruch.de/react-hooks/
+> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 <https://www.robinwieruch.de/react-hooks/>
 
 October 29, 2018 - [Edit this Post on GitHub](https://github.com/rwieruch/blog_robinwieruch_content/blob/master/react-hooks.md)
 
@@ -229,10 +230,10 @@ Now, many people argue React shouldn’t take JavaScript classes away because pe
 
 Every time a new feature is introduced, people are concerned about it. There is one side of the group that is ecstatic about the change, and the other side that fears the change. I heard the most common concerns for React Hooks are:
 
-*   Everything changes! _Subtle panic mode …_
-*   React is becoming bloated like Angular!
-*   It’s useless, classes worked fine.
-*   It’s magic!
+* Everything changes! _Subtle panic mode …_
+* React is becoming bloated like Angular!
+* It’s useless, classes worked fine.
+* It’s magic!
 
 **Let me address these concerns here:**
 
@@ -832,11 +833,11 @@ React Hooks being reusable is the best thing about them, because there is the po
 
 If you want to dive deeper into the state and effect hooks, you can check out the following React hook tutorials:
 
-*   [How to useReducer Hook?](https://www.robinwieruch.de/react-usereducer-hook/)
-*   [Migration from Class Components to Hooks](https://www.robinwieruch.de/react-hooks-migration)
-*   [Comparison useState vs useReducer](https://www.robinwieruch.de/react-usereducer-vs-usestate/)
-*   [Modern State Management with Hooks](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext)
-*   [How to fetch data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data)
+* [How to useReducer Hook?](https://www.robinwieruch.de/react-usereducer-hook/)
+* [Migration from Class Components to Hooks](https://www.robinwieruch.de/react-hooks-migration)
+* [Comparison useState vs useReducer](https://www.robinwieruch.de/react-usereducer-vs-usestate/)
+* [Modern State Management with Hooks](https://www.robinwieruch.de/react-state-usereducer-usestate-usecontext)
+* [How to fetch data with React Hooks](https://www.robinwieruch.de/react-hooks-fetch-data)
 
 Checkout the official [FAQ](https://reactjs.org/docs/hooks-faq.html) and [Rules](https://reactjs.org/docs/hooks-rules.html) for hooks in React’s documentation to learn more about their fine-grained behaviour. In addition, you can checkout [all officially available React Hooks](https://reactjs.org/docs/hooks-reference.html) too.
 
@@ -851,7 +852,7 @@ Build a Hacker News App along the way. No setup configuration. No tooling. No Re
 
 [Get the Book for free](https://roadtoreact.com/)
 
-### Never miss an article about web development, JavaScript and self-growth.
+### Never miss an article about web development, JavaScript and self-growth
 
 Take Part
 ---------

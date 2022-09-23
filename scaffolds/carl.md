@@ -6,8 +6,9 @@ tags:
   - 二分法
 categories:
   - 算法
-copyright: true
 description: ' '
+related_posts: true # 是否显示推荐文章
+copyright: true
 date: {{ date }}
 updated: {{ date }}
 ---

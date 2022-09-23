@@ -7,39 +7,40 @@ categories:
   - 前端
   - React
 description: 主要讨论 React 性能优化的主要方向和一些小技巧。
+related_posts: true
 abbrlink: 6df4
 date: 2019-09-04 21:10:11
 ---
 
 
-> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 https://juejin.im/post/5d045350f265da1b695d5bf2
+> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 <https://juejin.im/post/5d045350f265da1b695d5bf2>
 
 本文来源于公司内部的一次闪电分享，稍作润色分享出来。主要讨论 React 性能优化的主要方向和一些小技巧。**如果你觉得可以，请多点赞，鼓励我写出更精彩的文章**🙏。
 
 React 渲染性能优化的三个方向，其实也适用于其他软件开发领域，这三个方向分别是:
 
-*   **减少计算的量**。 -> 对应到 React 中就是**减少渲染的节点 或者 降低组件渲染的复杂度**
-*   **利用缓存**。-> 对应到 React 中就是**如何避免重新渲染，利用函数式编程的 memo 方式来避免组件重新渲染**
-*   **精确重新计算的范围**。 对应到 React 中就是**绑定组件和状态关系, 精确判断更新的'时机'和'范围'. 只重新渲染'脏'的组件，或者说降低渲染范围**
+* **减少计算的量**。 -> 对应到 React 中就是**减少渲染的节点 或者 降低组件渲染的复杂度**
+* **利用缓存**。-> 对应到 React 中就是**如何避免重新渲染，利用函数式编程的 memo 方式来避免组件重新渲染**
+* **精确重新计算的范围**。 对应到 React 中就是**绑定组件和状态关系, 精确判断更新的'时机'和'范围'. 只重新渲染'脏'的组件，或者说降低渲染范围**
 
 **目录**
 
-*   [减少渲染的节点 / 降低渲染计算量 (复杂度)](#%E5%87%8F%E5%B0%91%E6%B8%B2%E6%9F%93%E7%9A%84%E8%8A%82%E7%82%B9%E9%99%8D%E4%BD%8E%E6%B8%B2%E6%9F%93%E8%AE%A1%E7%AE%97%E9%87%8F%E5%A4%8D%E6%9D%82%E5%BA%A6)
-    *   [0️⃣ 不要在渲染函数都进行不必要的计算](#0%EF%B8%8F%E2%83%A3-%E4%B8%8D%E8%A6%81%E5%9C%A8%E6%B8%B2%E6%9F%93%E5%87%BD%E6%95%B0%E9%83%BD%E8%BF%9B%E8%A1%8C%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E8%AE%A1%E7%AE%97)
-    *   [1️⃣ 减少不必要的嵌套](#1%EF%B8%8F%E2%83%A3-%E5%87%8F%E5%B0%91%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%B5%8C%E5%A5%97)
-    *   [2️⃣ 虚拟列表](#2%EF%B8%8F%E2%83%A3-%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8)
-    *   [3️⃣ 惰性渲染](#3%EF%B8%8F%E2%83%A3-%E6%83%B0%E6%80%A7%E6%B8%B2%E6%9F%93)
-    *   [4️⃣ 选择合适的样式方案](#4%EF%B8%8F%E2%83%A3-%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%A0%B7%E5%BC%8F%E6%96%B9%E6%A1%88)
-*   [避免重新渲染](#%E9%81%BF%E5%85%8D%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93)
-    *   [0️⃣ 简化 props](#0%EF%B8%8F%E2%83%A3-%E7%AE%80%E5%8C%96-props)
-    *   [1️⃣ 不变的事件处理器](#1%EF%B8%8F%E2%83%A3-%E4%B8%8D%E5%8F%98%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%99%A8)
-    *   [2️⃣ 不可变数据](#2%EF%B8%8F%E2%83%A3-%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE)
-    *   [3️⃣ 简化 state](#3%EF%B8%8F%E2%83%A3-%E7%AE%80%E5%8C%96-state)
-    *   [4️⃣ 使用 recompose 精细化比对](#4%EF%B8%8F%E2%83%A3-%E4%BD%BF%E7%94%A8-recompose-%E7%B2%BE%E7%BB%86%E5%8C%96%E6%AF%94%E5%AF%B9)
-*   [精细化渲染](#%E7%B2%BE%E7%BB%86%E5%8C%96%E6%B8%B2%E6%9F%93)
-    *   [0️⃣ 响应式数据的精细化渲染](#0%EF%B8%8F%E2%83%A3-%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E7%9A%84%E7%B2%BE%E7%BB%86%E5%8C%96%E6%B8%B2%E6%9F%93)
-    *   [1️⃣ 不要滥用 Context](#1%EF%B8%8F%E2%83%A3-%E4%B8%8D%E8%A6%81%E6%BB%A5%E7%94%A8-context)
-*   [扩展](#%E6%89%A9%E5%B1%95)
+* [减少渲染的节点 / 降低渲染计算量 (复杂度)](#%E5%87%8F%E5%B0%91%E6%B8%B2%E6%9F%93%E7%9A%84%E8%8A%82%E7%82%B9%E9%99%8D%E4%BD%8E%E6%B8%B2%E6%9F%93%E8%AE%A1%E7%AE%97%E9%87%8F%E5%A4%8D%E6%9D%82%E5%BA%A6)
+  * [0️⃣ 不要在渲染函数都进行不必要的计算](#0%EF%B8%8F%E2%83%A3-%E4%B8%8D%E8%A6%81%E5%9C%A8%E6%B8%B2%E6%9F%93%E5%87%BD%E6%95%B0%E9%83%BD%E8%BF%9B%E8%A1%8C%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E8%AE%A1%E7%AE%97)
+  * [1️⃣ 减少不必要的嵌套](#1%EF%B8%8F%E2%83%A3-%E5%87%8F%E5%B0%91%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E5%B5%8C%E5%A5%97)
+  * [2️⃣ 虚拟列表](#2%EF%B8%8F%E2%83%A3-%E8%99%9A%E6%8B%9F%E5%88%97%E8%A1%A8)
+  * [3️⃣ 惰性渲染](#3%EF%B8%8F%E2%83%A3-%E6%83%B0%E6%80%A7%E6%B8%B2%E6%9F%93)
+  * [4️⃣ 选择合适的样式方案](#4%EF%B8%8F%E2%83%A3-%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%A0%B7%E5%BC%8F%E6%96%B9%E6%A1%88)
+* [避免重新渲染](#%E9%81%BF%E5%85%8D%E9%87%8D%E6%96%B0%E6%B8%B2%E6%9F%93)
+  * [0️⃣ 简化 props](#0%EF%B8%8F%E2%83%A3-%E7%AE%80%E5%8C%96-props)
+  * [1️⃣ 不变的事件处理器](#1%EF%B8%8F%E2%83%A3-%E4%B8%8D%E5%8F%98%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86%E5%99%A8)
+  * [2️⃣ 不可变数据](#2%EF%B8%8F%E2%83%A3-%E4%B8%8D%E5%8F%AF%E5%8F%98%E6%95%B0%E6%8D%AE)
+  * [3️⃣ 简化 state](#3%EF%B8%8F%E2%83%A3-%E7%AE%80%E5%8C%96-state)
+  * [4️⃣ 使用 recompose 精细化比对](#4%EF%B8%8F%E2%83%A3-%E4%BD%BF%E7%94%A8-recompose-%E7%B2%BE%E7%BB%86%E5%8C%96%E6%AF%94%E5%AF%B9)
+* [精细化渲染](#%E7%B2%BE%E7%BB%86%E5%8C%96%E6%B8%B2%E6%9F%93)
+  * [0️⃣ 响应式数据的精细化渲染](#0%EF%B8%8F%E2%83%A3-%E5%93%8D%E5%BA%94%E5%BC%8F%E6%95%B0%E6%8D%AE%E7%9A%84%E7%B2%BE%E7%BB%86%E5%8C%96%E6%B8%B2%E6%9F%93)
+  * [1️⃣ 不要滥用 Context](#1%EF%B8%8F%E2%83%A3-%E4%B8%8D%E8%A6%81%E6%BB%A5%E7%94%A8-context)
+* [扩展](#%E6%89%A9%E5%B1%95)
 
 减少渲染的节点 / 降低渲染计算量 (复杂度)
 -----------------------
@@ -74,22 +75,22 @@ React 渲染性能优化的三个方向，其实也适用于其他软件开发�
 
 虚拟列表常用于以下组件场景:
 
-*   无限滚动列表，grid, 表格，下拉列表，spreadsheets
-*   无限切换的日历或轮播图
-*   大数据量或无限嵌套的树
-*   聊天窗，数据流 (feed), 时间轴
-*   等等
+* 无限滚动列表，grid, 表格，下拉列表，spreadsheets
+* 无限切换的日历或轮播图
+* 大数据量或无限嵌套的树
+* 聊天窗，数据流 (feed), 时间轴
+* 等等
 
 相关组件方案:
 
-*   [react-virtualized](https://link.juejin.im?target=https%3A%2F%2Fgithub.com%2Fbvaughn%2Freact-virtualized)
-*   [react-window](https://link.juejin.im?target=https%3A%2F%2Fgithub.com%2Fbvaughn%2Freact-window) 更轻量的 react-virtualized, 同出一个作者
-*   [更多](https://link.juejin.im?target=https%3A%2F%2Fgithub.com%2Fbvaughn%2Freact-virtualized%23friends)
+* [react-virtualized](https://link.juejin.im?target=https%3A%2F%2Fgithub.com%2Fbvaughn%2Freact-virtualized)
+* [react-window](https://link.juejin.im?target=https%3A%2F%2Fgithub.com%2Fbvaughn%2Freact-window) 更轻量的 react-virtualized, 同出一个作者
+* [更多](https://link.juejin.im?target=https%3A%2F%2Fgithub.com%2Fbvaughn%2Freact-virtualized%23friends)
 
 扩展：
 
-*   [Creating more efficient React views with windowing](https://link.juejin.im?target=https%3A%2F%2Fbvaughn.github.io%2Fforward-js-2017%2F%23%2F0%2F0)
-*   [Rendering large lists with react-window](https://link.juejin.im?target=https%3A%2F%2Faddyosmani.com%2Fblog%2Freact-window%2F)
+* [Creating more efficient React views with windowing](https://link.juejin.im?target=https%3A%2F%2Fbvaughn.github.io%2Fforward-js-2017%2F%23%2F0%2F0)
+* [Rendering large lists with react-window](https://link.juejin.im?target=https%3A%2F%2Faddyosmani.com%2Fblog%2Freact-window%2F)
 
 ### 3️⃣ 惰性渲染
 
@@ -114,8 +115,8 @@ React 渲染性能优化的三个方向，其实也适用于其他软件开发�
 
 减少不必要的重新渲染也是 React 组件性能优化的重要方向. 为了避免不必要的组件重新渲染需要在做到两点:
 
-1.  保证组件纯粹性。即控制组件的副作用，如果组件有副作用则无法安全地缓存渲染结果
-2.  通过`shouldComponentUpdate`生命周期函数来比对 state 和 props, 确定是否要重新渲染。对于函数组件可以使用`React.memo`包装
+1. 保证组件纯粹性。即控制组件的副作用，如果组件有副作用则无法安全地缓存渲染结果
+2. 通过`shouldComponentUpdate`生命周期函数来比对 state 和 props, 确定是否要重新渲染。对于函数组件可以使用`React.memo`包装
 
 另外这些措施也可以帮助你更容易地优化组件重新渲染:
 
@@ -439,22 +440,21 @@ export const List = observer(() => {
 
 总结一下使用 Context API 要遵循一下原则:
 
-*   **明确状态作用域, Context 只放置必要的，关键的，被大多数组件所共享的状态**。比较典型的是鉴权状态
-    
+* **明确状态作用域, Context 只放置必要的，关键的，被大多数组件所共享的状态**。比较典型的是鉴权状态
+
     举一个简单的例子:
-    
+
     ![](https://user-gold-cdn.xitu.io/2019/6/15/16b58e53c17cd5e1?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-    
+
     ![](https://user-gold-cdn.xitu.io/2019/6/15/16b58e53c9bdc0b3?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-    
+
     扩展：Context 其实有个实验性或者说非公开的选项`observedBits`, 可以用于控制 ContextConsumer 是否需要更新. 详细可以看这篇文章 <[ObservedBits: React Context 的秘密功能](https://link.juejin.im?target=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F51073183) >. 不过不推荐在实际项目中使用，而且这个 API 也比较难用，不如直接上 mobx。
-    
-*   **粗粒度地订阅 Context**
-    
+
+* **粗粒度地订阅 Context**
+
     如下图. 细粒度的 Context 订阅会导致不必要的重新渲染, 所以这里推荐粗粒度的订阅. 比如在父级订阅 Context，然后再通过 props 传递给下级。
-    
+
     ![](https://user-gold-cdn.xitu.io/2019/6/15/16b58e53c08a377e?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
-    
 
 另外程墨 Morgan 在[避免 React Context 导致的重复渲染](https://link.juejin.im?target=https%3A%2F%2Fzhuanlan.zhihu.com%2Fp%2F50336226)一文中也提到 ContextAPI 的一个陷阱:
 
@@ -527,5 +527,5 @@ export function ThemeProvider(props) {
 扩展
 --
 
-*   [Optimizing Performance](https://link.juejin.im?target=https%3A%2F%2Freact.docschina.org%2Fdocs%2Foptimizing-performance.html) React 官方文档，最好的教程, 利用好 React 的性能分析工具。
-*   [Twitter Lite and High Performance React Progressive Web Apps at Scale](https://link.juejin.im?target=https%3A%2F%2Fmedium.com%2F%40paularmstrong%2Ftwitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3) 看看 Twitter 如何优化的
+* [Optimizing Performance](https://link.juejin.im?target=https%3A%2F%2Freact.docschina.org%2Fdocs%2Foptimizing-performance.html) React 官方文档，最好的教程, 利用好 React 的性能分析工具。
+* [Twitter Lite and High Performance React Progressive Web Apps at Scale](https://link.juejin.im?target=https%3A%2F%2Fmedium.com%2F%40paularmstrong%2Ftwitter-lite-and-high-performance-react-progressive-web-apps-at-scale-d28a00e780a3) 看看 Twitter 如何优化的

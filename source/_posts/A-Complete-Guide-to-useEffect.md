@@ -9,21 +9,22 @@ categories:
   - React
   - React Hooks
 description: useEffect 完整指南 — Dan Abramov
+related_posts: true
 abbrlink: '6387'
 ---
 
 
-> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 https://overreacted.io/a-complete-guide-to-useeffect/
+> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 <https://overreacted.io/a-complete-guide-to-useeffect/>
 
 You wrote a few components with [Hooks](https://reactjs.org/docs/hooks-intro.html). Maybe even a small app. You’re mostly satisfied. You’re comfortable with the API and picked up a few tricks along the way. You even made some [custom Hooks](https://reactjs.org/docs/hooks-custom.html) to extract repetitive logic (300 lines gone!) and showed it off to your colleagues. “Great job”, they said.
 
 But sometimes when you `useEffect`, the pieces don’t quite fit together. You have a nagging feeling that you’re missing something. It seems similar to class lifecycles… but is it really? You find yourself asking questions like:
 
-*   🤔 How do I replicate `componentDidMount` with `useEffect`?
-*   🤔 How do I correctly fetch data inside `useEffect`? What is `[]`?
-*   🤔 Do I need to specify functions as effect dependencies or not?
-*   🤔 Why do I sometimes get an infinite refetching loop?
-*   🤔 Why do I sometimes get an old state or prop value inside my effect?
+* 🤔 How do I replicate `componentDidMount` with `useEffect`?
+* 🤔 How do I correctly fetch data inside `useEffect`? What is `[]`?
+* 🤔 Do I need to specify functions as effect dependencies or not?
+* 🤔 Why do I sometimes get an infinite refetching loop?
+* 🤔 Why do I sometimes get an old state or prop value inside my effect?
 
 When I just started using Hooks, I was confused by all of those questions too. Even when writing the initial docs, I didn’t have a firm grasp on some of the subtleties. I’ve since had a few “aha” moments that I want to share with you. **This deep dive will make the answers to these questions look obvious to you.**
 
@@ -33,7 +34,7 @@ To _see_ the answers, we need to take a step back. The goal of this article isn�
 
 > “Unlearn what you have learned.” — Yoda
 
- [![](https://overreacted.io/static/6203a1f1f2c771816a5ba0969baccd12/5ed8a/yoda.jpg)](https://overreacted.io/static/6203a1f1f2c771816a5ba0969baccd12/5ed8a/yoda.jpg) 
+ [![](https://overreacted.io/static/6203a1f1f2c771816a5ba0969baccd12/5ed8a/yoda.jpg)](https://overreacted.io/static/6203a1f1f2c771816a5ba0969baccd12/5ed8a/yoda.jpg)
 
 **This article assumes that you’re somewhat familiar with [`useEffect`](https://reactjs.org/docs/hooks-effect.html) API.**
 
@@ -170,9 +171,9 @@ function Counter() {
 
 Let’s say I do this sequence of steps:
 
-*   **Increment** the counter to 3
-*   **Press** “Show alert”
-*   **Increment** it to 5 before the timeout fires
+* **Increment** the counter to 3
+* **Press** “Show alert”
+* **Increment** it to 5 before the timeout fires
 
 ![](https://overreacted.io/counter-46c55d5f1f749462b7a173f1e748e41e.gif)
 
@@ -366,30 +367,30 @@ Strictly saying, they’re not (in order to [allow Hook composition](https://ove
 
 To make sure we have a solid understanding, let’s recap our first render:
 
-*   **React:** Give me the UI when the state is `0`.
-*   **Your component:**
-    
-    *   Here’s the render result: `<p>You clicked 0 times</p>`.
-    *   Also remember to run this effect after you’re done: `() => { document.title = 'You clicked 0 times' }`.
-*   **React:** Sure. Updating the UI. Hey browser, I’m adding some stuff to the DOM.
-*   **Browser:** Cool, I painted it to the screen.
-*   **React:** OK, now I’m going to run the effect you gave me.
-    
-    *   Running `() => { document.title = 'You clicked 0 times' }`.
+* **React:** Give me the UI when the state is `0`.
+* **Your component:**
+
+  * Here’s the render result: `<p>You clicked 0 times</p>`.
+  * Also remember to run this effect after you’re done: `() => { document.title = 'You clicked 0 times' }`.
+* **React:** Sure. Updating the UI. Hey browser, I’m adding some stuff to the DOM.
+* **Browser:** Cool, I painted it to the screen.
+* **React:** OK, now I’m going to run the effect you gave me.
+
+  * Running `() => { document.title = 'You clicked 0 times' }`.
 
 Now let’s recap what happens after we click:
 
-*   **Your component:** Hey React, set my state to `1`.
-*   **React:** Give me the UI for when the state is `1`.
-*   **Your component:**
-    
-    *   Here’s the render result: `<p>You clicked 1 times</p>`.
-    *   Also remember to run this effect after you’re done: `() => { document.title = 'You clicked 1 times' }`.
-*   **React:** Sure. Updating the UI. Hey browser, I’ve changed the DOM.
-*   **Browser:** Cool, I painted your changes to the screen.
-*   **React:** OK, now I’ll run the effect that belongs to the render I just did.
-    
-    *   Running `() => { document.title = 'You clicked 1 times' }`.
+* **Your component:** Hey React, set my state to `1`.
+* **React:** Give me the UI for when the state is `1`.
+* **Your component:**
+
+  * Here’s the render result: `<p>You clicked 1 times</p>`.
+  * Also remember to run this effect after you’re done: `() => { document.title = 'You clicked 1 times' }`.
+* **React:** Sure. Updating the UI. Hey browser, I’ve changed the DOM.
+* **Browser:** Cool, I painted your changes to the screen.
+* **React:** OK, now I’ll run the effect that belongs to the render I just did.
+
+  * Running `() => { document.title = 'You clicked 1 times' }`.
 
 [](#each-render-has-its-own-everything)Each Render Has Its Own… Everything
 --------------------------------------------------------------------------
@@ -516,9 +517,9 @@ Consider this code:
 
 Say `props` is `{id: 10}` on the first render, and `{id: 20}` on the second render. You _might_ think that something like this happens:
 
-*   React cleans up the effect for `{id: 10}`.
-*   React renders UI for `{id: 20}`.
-*   React runs the effect for `{id: 20}`.
+* React cleans up the effect for `{id: 10}`.
+* React renders UI for `{id: 20}`.
+* React runs the effect for `{id: 20}`.
 
 (This is not quite the case.)
 
@@ -526,10 +527,10 @@ With this mental model, you might think the cleanup “sees” the old props bec
 
 React only runs the effects after [letting the browser paint](https://medium.com/@dan_abramov/this-benchmark-is-indeed-flawed-c3d6b5b6f97f). This makes your app faster as most effects don’t need to block screen updates. Effect cleanup is also delayed. **The previous effect is cleaned up _after_ the re-render with new props:**
 
-*   **React renders UI for `{id: 20}`.**
-*   The browser paints. We see the UI for `{id: 20}` on the screen.
-*   **React cleans up the effect for `{id: 10}`.**
-*   React runs the effect for `{id: 20}`.
+* **React renders UI for `{id: 20}`.**
+* The browser paints. We see the UI for `{id: 20}` on the screen.
+* **React cleans up the effect for `{id: 10}`.**
+* React runs the effect for `{id: 20}`.
 
 You might be wondering: but how can the cleanup of the previous effect still “see” the old `{id: 10}` props if it runs _after_ the props change to `{id: 20}`?
 

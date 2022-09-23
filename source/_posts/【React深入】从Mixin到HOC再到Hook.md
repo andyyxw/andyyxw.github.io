@@ -5,10 +5,11 @@ date: 2019-09-23 17:41:48
 tags:
 categories:
 description: 本文介绍了 React 采用的三种实现 状态逻辑复用 的技术，并分析了他们的实现原理、使用方法、实际应用以及如何选择使用他们。
+related_posts: true
 ---
 
 
-> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 https://juejin.im/post/5cad39b3f265da03502b1c0a#heading-35
+> 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 <https://juejin.im/post/5cad39b3f265da03502b1c0a#heading-35>
 
 导读
 --
@@ -120,9 +121,9 @@ Mixin 带来的危害
 
 `React`官方文档在 [Mixins Considered Harmful](https://link.juejin.im?target=https%3A%2F%2Freact.docschina.org%2Fblog%2F2016%2F07%2F13%2Fmixins-considered-harmful.html) 一文中提到了`Mixin`带来了危害：
 
-*   `Mixin` 可能会相互依赖，相互耦合，不利于代码维护
-*   不同的`Mixin`中的方法可能会相互冲突
-*   `Mixin`非常多时，组件是可以感知到的，甚至还要为其做相关处理，这样会给代码造成滚雪球式的复杂性
+* `Mixin` 可能会相互依赖，相互耦合，不利于代码维护
+* 不同的`Mixin`中的方法可能会相互冲突
+* `Mixin`非常多时，组件是可以感知到的，甚至还要为其做相关处理，这样会给代码造成滚雪球式的复杂性
 
 `React`现在已经不再推荐使用`Mixin`来解决代码复用问题，因为`Mixin`带来的危害比他产生的价值还要巨大，并且`React`全面推荐使用高阶组件来替代它。另外，高阶组件还能实现更多其他更强大的功能，在学习高阶组件之前，我们先来看一个设计模式。
 
@@ -183,10 +184,10 @@ function proxyHOC(WrappedComponent) {
 
 对比原生组件增强的项：
 
-*   可操作所有传入的`props`
-*   可操作组件的生命周期
-*   可操作组件的`static`方法
-*   获取`refs`
+* 可操作所有传入的`props`
+* 可操作组件的生命周期
+* 可操作组件的`static`方法
+* 获取`refs`
 
 ### 反向继承
 
@@ -206,12 +207,12 @@ function inheritHOC(WrappedComponent) {
 
 对比原生组件增强的项：
 
-*   可操作所有传入的`props`
-*   可操作组件的生命周期
-*   可操作组件的`static`方法
-*   获取`refs`
-*   可操作`state`
-*   可以渲染劫持
+* 可操作所有传入的`props`
+* 可操作组件的生命周期
+* 可操作组件的`static`方法
+* 获取`refs`
+* 可操作`state`
+* 可以渲染劫持
 
 HOC 可以实现什么功能
 ------------
@@ -615,8 +616,8 @@ function auth(WrappedComponent) {
 
 首先我们自定义一个`Form`组件，该组件用于包裹所有需要包裹的表单组件，通过`contex`向子组件暴露两个属性：
 
-*   `model`：当前`Form`管控的所有数据，由表单`name`和`value`组成，如`{name:'ConardLi',pwd:'123'}`。`model`可由外部传入，也可自行管控。
-*   `changeModel`：改变`model`中某个`name`的值。
+* `model`：当前`Form`管控的所有数据，由表单`name`和`value`组成，如`{name:'ConardLi',pwd:'123'}`。`model`可由外部传入，也可自行管控。
+* `changeModel`：改变`model`中某个`name`的值。
 
 ```
 class Form extends Component {
@@ -664,8 +665,8 @@ class Form extends Component {
 
 下面定义用于双向绑定的`HOC`，其代理了表单的`onChange`属性和`value`属性：
 
-*   发生`onChange`事件时调用上层`Form`的`changeModel`方法来改变`context`中的`model`。
-*   在渲染时将`value`改为从`context`中取出的值。
+* 发生`onChange`事件时调用上层`Form`的`changeModel`方法来改变`context`中的`model`。
+* 在渲染时将`value`改为从`context`中取出的值。
 
 ```
 function proxyHoc(WrappedComponent) {
@@ -914,9 +915,9 @@ function hoc(WrappedComponent) {
 
 `React` `Diff`算法的原则是：
 
-*   使用组件标识确定是卸载还是更新组件
-*   如果组件的和前一次渲染时标识是相同的，递归更新子组件
-*   如果标识不同卸载组件重新挂载新组件
+* 使用组件标识确定是卸载还是更新组件
+* 如果组件的和前一次渲染时标识是相同的，递归更新子组件
+* 如果标识不同卸载组件重新挂载新组件
 
 每次调用高阶组件生成的都是是一个全新的组件，组件的唯一标识响应的也会改变，如果在`render`方法调用了高阶组件，这会导致组件每次都会被卸载后重新挂载。
 
@@ -1000,23 +1001,23 @@ static displayName = `Visible(${WrappedComponent.displayName})`
 
 回顾下上文提到的 `Mixin` 带来的风险：
 
-*   `Mixin` 可能会相互依赖，相互耦合，不利于代码维护
-*   不同的`Mixin`中的方法可能会相互冲突
-*   `Mixin`非常多时，组件是可以感知到的，甚至还要为其做相关处理，这样会给代码造成滚雪球式的复杂性
+* `Mixin` 可能会相互依赖，相互耦合，不利于代码维护
+* 不同的`Mixin`中的方法可能会相互冲突
+* `Mixin`非常多时，组件是可以感知到的，甚至还要为其做相关处理，这样会给代码造成滚雪球式的复杂性
 
 ![](https://user-gold-cdn.xitu.io/2019/4/10/16a04a94cd939f75?imageView2/0/w/1280/h/960/format/webp/ignore-error/1)
 
 而`HOC`的出现可以解决这些问题：
 
-*   高阶组件就是一个没有副作用的纯函数，各个高阶组件不会互相依赖耦合
-*   高阶组件也有可能造成冲突，但我们可以在遵守约定的情况下避免这些行为
-*   高阶组件并不关心数据使用的方式和原因，而被包裹的组件也不关心数据来自何处。高阶组件的增加不会为原组件增加负担
+* 高阶组件就是一个没有副作用的纯函数，各个高阶组件不会互相依赖耦合
+* 高阶组件也有可能造成冲突，但我们可以在遵守约定的情况下避免这些行为
+* 高阶组件并不关心数据使用的方式和原因，而被包裹的组件也不关心数据来自何处。高阶组件的增加不会为原组件增加负担
 
 HOC 的缺陷
 -------
 
-*   `HOC`需要在原组件上进行包裹或者嵌套，如果大量使用`HOC`，将会产生非常多的嵌套，这让调试变得非常困难。
-*   `HOC`可以劫持`props`，在不遵守约定的情况下也可能造成冲突。
+* `HOC`需要在原组件上进行包裹或者嵌套，如果大量使用`HOC`，将会产生非常多的嵌套，这让调试变得非常困难。
+* `HOC`可以劫持`props`，在不遵守约定的情况下也可能造成冲突。
 
 Hooks
 -----
@@ -1085,8 +1086,8 @@ export default function HookTest() {
 
 `useEffect`方法接收传入两个参数：
 
-*   1. 回调函数：在第组件一次`render`和之后的每次`update`后运行，`React`保证在`DOM`已经更新完成之后才会运行回调。
-*   2. 状态依赖 (数组)：当配置了状态依赖项后，只有检测到配置的状态变化时，才会调用回调函数。
+* 1. 回调函数：在第组件一次`render`和之后的每次`update`后运行，`React`保证在`DOM`已经更新完成之后才会运行回调。
+* 2. 状态依赖 (数组)：当配置了状态依赖项后，只有检测到配置的状态变化时，才会调用回调函数。
 
 ```
   useEffect(() => {
@@ -1252,13 +1253,13 @@ function useDidUpdate(callback, prop) {
 
 ### 使用范围
 
-*   只能在`React`函数式组件或自定义`Hook`中使用`Hook`。
+* 只能在`React`函数式组件或自定义`Hook`中使用`Hook`。
 
 `Hook`的提出主要就是为了解决`class`组件的一系列问题，所以我们能在`class`组件中使用它。
 
 ### 声明约束
 
-*   不要在循环，条件或嵌套函数中调用 Hook。
+* 不要在循环，条件或嵌套函数中调用 Hook。
 
 `Hook`通过数组实现的，每次`useState` 都会改变下标，`React`需要利用调用顺序来正确更新相应的状态，如果`useState` 被包裹循环或条件语句中，那每就可能会引起调用顺序的错乱，从而造成意想不到的错误。
 
@@ -1401,6 +1402,5 @@ function Page1(props){
 推荐阅读
 ----
 
-*   [【React 深入】setState 的执行机制](https://juejin.im/post/5c71050ef265da2db27938b5)
-*   [【React 深入】React 事件机制](https://juejin.im/post/5c7df2e7f265da2d8a55d49d)
-
+* [【React 深入】setState 的执行机制](https://juejin.im/post/5c71050ef265da2db27938b5)
+* [【React 深入】React 事件机制](https://juejin.im/post/5c7df2e7f265da2d8a55d49d)

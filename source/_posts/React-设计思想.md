@@ -7,11 +7,12 @@ categories:
 abbrlink: '7615'
 date: 2018-07-26 10:25:48
 description: React设计思想
+related_posts: true
 ---
 
 # React 设计思想
 
-> 译者序：本文是 React 核心开发者、有 React API 终结者之称的 Sebastian Markbåge 撰写，阐述了他设计 React 的初衷。阅读此文，你能站在更高的高度思考 React 的过去、现在和未来。原文地址：https://github.com/reactjs/react-basic
+> 译者序：本文是 React 核心开发者、有 React API 终结者之称的 Sebastian Markbåge 撰写，阐述了他设计 React 的初衷。阅读此文，你能站在更高的高度思考 React 的过去、现在和未来。原文地址：<https://github.com/reactjs/react-basic>
 
 <!-- more -->
 
