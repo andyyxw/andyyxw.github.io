@@ -6,6 +6,7 @@ tags:
   - 二分法
 categories:
   - 算法
+copyright: true
 description: ' '
 date: {{ date }}
 updated: {{ date }}

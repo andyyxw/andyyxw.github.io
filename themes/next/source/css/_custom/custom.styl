@@ -1,4 +1,7 @@
 // Custom styles.
+:root {
+  --card-bg-color: #f5f5f5;
+}
 
 //修改busuanzi数据颜色
 .footer .busuanzi-value {
@@ -6,13 +9,19 @@
 }
 
 /* 文章内链接文本样式 */
-.post-body a:not(.btn) {
-  color: #1890ff;
-  border-bottom: none;
-  border-bottom: 1px solid #1890ff;
-  &:hover {
-    color: #fc6423;
-    border-bottom: none;
-    border-bottom: 1px solid #fc6423;
+#posts a {
+  &:not(.btn) {
+    transition: color 0.2s;
+    &:hover {
+      color: #fc6423;
+      border-bottom-color: #fc6423;
+    }
+  }
+}
+
+.post-body a {
+  &:not(.btn) {
+    color: #1890ff;
+    border-bottom: 1px solid #1890ff;
   }
 }
