@@ -8,7 +8,8 @@
   "scripts": {
     "prestart": "hexo clean",
     "start": "hexo server",
-    "pub": "hexo generate --force --deploy",
+    "prepub": "hexo clean",
+    "pub": "hexo generate --deploy",
     "postpub": "hexo backup"
   },
   "dependencies": {
