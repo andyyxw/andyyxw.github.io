@@ -230,26 +230,6 @@
              </span>
           {% endif %}
 
-         <span class="post-time">
-	          &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-file-word-o"></i>
-           </span>
-           <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">{{ wordcount(post.content) }} 字</span>
-
-         </span>
-
-          <span class="post-time">
-	          &nbsp; | &nbsp;
-           <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
-           </span>
-           <span class="post-meta-item-text">阅读时长:</span>
-           <span class="post-count">{{ min2read(post.content) }} 分钟</span>
-         </span>
-
-
           {% if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.post_views %}
             <span class="post-meta-divider">|</span>
             <span class="post-meta-item-icon"
@@ -271,7 +251,7 @@
                   <i class="fa fa-file-word-o"></i>
                 </span>
                 {% if theme.symbols_count_time.item_text_post %}
-                  <span class="post-meta-item-text">{{ __('symbols_count_time.count') + __('symbol.colon') }}</span>
+                  <span class="post-meta-item-text">{{ __('symbols_count_time.count') }}</span>
                 {% endif %}
                 <span title="{{ __('symbols_count_time.count') }}">{#
                 #}{{ symbolsCount(post.content) }}{#

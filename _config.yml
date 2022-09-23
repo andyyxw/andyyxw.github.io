@@ -94,6 +94,16 @@ encrypt:
   abstract: 内容已经加密，请输入密码后阅读！</br>
   message: 这是篇有密码的博客
 
+symbols_count_time:
+  symbols: true # 统计单篇文章字数
+  time: true # 估算单篇文章阅读时间
+  total_symbols: true # 统计站点总字数
+  total_time: true # 估算站点总阅读时间
+  exclude_codeblock: true
+  awl: 4
+  wpm: 275
+  suffix: "mins."
+
 leancloud_counter_security:
   enable_sync: false
   app_id: ISFsnphMrUOU50gzo495Jasy-9Nh9j0Va # <your app id>

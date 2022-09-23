@@ -307,11 +307,11 @@ post_meta:
 # Post wordcount display settings
 # Dependencies: https://github.com/theme-next/hexo-symbols-count-time
 symbols_count_time:
-  separated_meta: true
-  item_text_post: true
-  item_text_total: false
-  awl: 4
-  wpm: 275
+  separated_meta: false # 统计信息换行显示
+  item_text_post: true # 文章统计信息中是否显示“本文字数/阅读时长”等描述文字
+  item_text_total: false # 站点统计信息中是否显示“本文字数/阅读时长”等描述文字
+  awl: 4 # Average Word Length：平均字符长度
+  wpm: 275 # Words Per Minute：阅读速度
 
 codeblock:
   # Manual define the border radius in codeblock
@@ -684,7 +684,7 @@ busuanzi_count:
   total_visitors_icon: user
   total_views: true # 访问量
   total_views_icon: eye
-  post_views: false
+  post_views: false # 文章访问量。因为不支持在首页列表显示访问量，改用 hexo-symbols-count-time 了
   post_views_icon: eye
 
 
