@@ -662,7 +662,7 @@ leancloud_visitors:
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in lc counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set the `security` to `false`.
-  security: true
+  security: false
   betterPerformance: true
 
 
@@ -681,10 +681,10 @@ firestore:
 busuanzi_count:
   enable: true
   total_visitors: true # 访客数
-  # total_visitors_icon: user
+  total_visitors_icon: user
   total_views: true # 访问量
-  # total_views_icon: eye
-  post_views: true
+  total_views_icon: eye
+  post_views: false
   post_views_icon: eye
 
 

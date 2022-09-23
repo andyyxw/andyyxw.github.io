@@ -233,7 +233,7 @@
          <span class="post-time">
 	          &nbsp; | &nbsp;
            <span class="post-meta-item-icon">
-             <i class="fa fa-calendar-o"></i>
+             <i class="fa fa-file-word-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
            <span class="post-count">{{ wordcount(post.content) }} 字</span>
