@@ -1,7 +1,8 @@
 {% if theme.leancloud_visitors.enable and !theme.valine.visitor %}
 
   {# custom analytics part create by xiamo; edited by LEAFERx #}
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  {# <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script> #}
+  <script type="text/javascript" src="{{ url_for(theme.js) }}/src/av-core-mini-0.6.4.js?v={{ version }}"></script>
   <script>AV.initialize("{{theme.leancloud_visitors.app_id}}", "{{theme.leancloud_visitors.app_key}}");</script>
   <script>
     function showTime(Counter) {
