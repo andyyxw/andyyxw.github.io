@@ -7,17 +7,16 @@ tags:
   - 数组
 categories:
   - 算法
-description: '  '
+description: ' '
 related_posts: true
 copyright: true
 abbrlink: bc1e
 date: 2022-09-23 05:02:43
-updated: 2022-09-23 05:02:43
 ---
 
-## 题目详解
+## <center>[LeetCode-977.有序数组的平方](https://leetcode.cn/problems/squares-of-a-sorted-array/)</center>
 
-### [LeetCode-977.有序数组的平方](https://leetcode.cn/problems/squares-of-a-sorted-array/)
+### 题目详解
 
 - 相关链接：[文章](https://programmercarl.com/0977.%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9.html)、[视频](https://www.bilibili.com/video/BV1QB4y1D7ep)
 - 思路
@@ -53,4 +52,4 @@ updated: 2022-09-23 05:02:43
     时间复杂度：O(n)
     空间复杂度：O(1)
 
-## 收获
+### 收获

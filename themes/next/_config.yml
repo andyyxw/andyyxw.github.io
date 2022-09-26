@@ -298,7 +298,7 @@ auto_excerpt:
 # 文章标题下方的信息栏
 post_meta:
   item_text: true # 是否显示每项的文字
-  created_at: true # 是否显示发表时间
+  created_at: true # 是否显示创建时间
   updated_at: # 是否显示更新时间
     enabled: true
     # If true, show updated date label only if `updated date` different from 'created date' (post edited in another day than was created).

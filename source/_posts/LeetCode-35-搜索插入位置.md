@@ -16,9 +16,9 @@ date: 2022-09-24 19:07:46
 updated: 2022-09-24 19:07:46
 ---
 
-## 题目详解
+## <center>[LeetCode-35.搜索插入位置](https://leetcode.cn/problems/search-insert-position/)</center>
 
-### [LeetCode-35.搜索插入位置](https://leetcode.cn/problems/search-insert-position/)
+### 题目详解
 
 - 相关链接：[文章](https://programmercarl.com/0035.%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE.html)
 - 思路:
@@ -60,6 +60,6 @@ updated: 2022-09-24 19:07:46
     时间复杂度：O($\log n$)
     空间复杂度：O(1)
 
-## 收获
+### 收获
 
 - 二分法玩明白了

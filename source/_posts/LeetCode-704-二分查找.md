@@ -16,9 +16,9 @@ date: 2022-09-22 23:29:30
 updated: 2022-09-22 23:29:30
 ---
 
-## 题目详解
+## <center>[LeetCode-704.二分查找](https://leetcode.cn/problems/binary-search/)</center>
 
-### [LeetCode-704.二分查找](https://leetcode.cn/problems/binary-search/)
+### 题目详解
 
 - 相关链接：[文章](https://programmercarl.com/0704.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.html#_704-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE)、[视频](https://www.bilibili.com/video/BV1fA4y1o715)
 - 思路：
@@ -66,7 +66,7 @@ updated: 2022-09-22 23:29:30
     时间复杂度：O($\log n$)
     空间复杂度：O(1)
 
-## 收获
+### 收获
 
 - 对双指针理解更深刻了，可以两端收缩，可以是快慢指针
 - 对二分法的边界条件判断更清晰了，用开闭区间的方法辅助判断（一般用`左闭右闭`/`左闭右开`）

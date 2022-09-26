@@ -13,9 +13,9 @@ date: {{ date }}
 updated: {{ date }}
 ---
 
-## 题目详解
+## <center>[LeetCode-]()</center>
 
-### [LeetCode-]()
+### 题目详解
 
 - 相关链接：[文章](https://programmercarl.com)、[视频](https://www.bilibili.com/video/BV1fA4y1o715)
 - 思路
@@ -29,4 +29,4 @@ updated: {{ date }}
     时间复杂度：O($\log n$)
     空间复杂度：O(1)
 
-## 收获
+### 收获
