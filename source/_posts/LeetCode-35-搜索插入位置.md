@@ -5,6 +5,7 @@ tags:
   - 代码随想录
   - 二分法
   - 双指针
+  - 数组
 categories:
   - 算法
 description: ' '
@@ -23,7 +24,7 @@ updated: 2022-09-24 19:07:46
 - 思路:
   - 经典的双指针二分法
 - 看完 [代码随想录](https://programmercarl.com/0035.%E6%90%9C%E7%B4%A2%E6%8F%92%E5%85%A5%E4%BD%8D%E7%BD%AE.html) 之后的想法：
-  - 之前在 [LeetCode-704.二分查找](https://andy.city/archives/4f45.html) 已经掌握了卡尔教的二分法使用开闭区间判断边界条件的精髓，做完题后检查了一遍与卡尔的题解一致！
+  - 之前在 [LeetCode-704.二分查找](https://andy.city/archives/4f45.html) 已经掌握了Carl教的二分法使用开闭区间判断边界条件的精髓，做完题后检查了一遍与Carl的题解一致！
 - 实现过程中遇到的困难：无
 - 代码：
   - 二分法（左闭右闭）

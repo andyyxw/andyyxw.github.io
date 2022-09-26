@@ -4,6 +4,7 @@ tags:
   - LeetCode
   - 代码随想录
   - 双指针
+  - 数组
 categories:
   - 算法
 description: '  '
@@ -18,7 +19,7 @@ updated: 2022-09-23 05:02:43
 
 ### [LeetCode-977.有序数组的平方](https://leetcode.cn/problems/squares-of-a-sorted-array/)
 
-- 相关链接：[文章](https://programmercarl.com/0977.%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9.html) 、[视频](https://www.bilibili.com/video/BV1QB4y1D7ep)
+- 相关链接：[文章](https://programmercarl.com/0977.%E6%9C%89%E5%BA%8F%E6%95%B0%E7%BB%84%E7%9A%84%E5%B9%B3%E6%96%B9.html)、[视频](https://www.bilibili.com/video/BV1QB4y1D7ep)
 - 思路
   - 题目要求了时间复杂度O(n)，那就不应该有排序过程
   - 我们知道一个可能有负数的非递减顺序，最大绝对值一定在两端

@@ -5,6 +5,7 @@ tags:
   - 代码随想录
   - 双指针
   - 快慢指针
+  - 数组
 categories:
   - 算法
 description: ' '
@@ -19,7 +20,7 @@ updated: 2022-09-23 04:52:00
 
 ### [LeetCode-27.移除元素](https://leetcode.cn/problems/remove-element/)
 
-- 相关链接：[文章](https://programmercarl.com/0027.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.html#_27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0) 、[视频](https://www.bilibili.com/video/BV12A4y1Z7LP)
+- 相关链接：[文章](https://programmercarl.com/0027.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.html#_27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0)、[视频](https://www.bilibili.com/video/BV12A4y1Z7LP)
 - 思路：
   - 先排序，使用双指针去遍历找到需要移除的那段区间移除掉
 - 看完 [代码随想录](https://programmercarl.com/0027.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.html#_27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0) 之后的想法：

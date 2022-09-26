@@ -17,7 +17,7 @@ updated: {{ date }}
 
 ### [LeetCode-]()
 
-- 相关链接：[文章](https://programmercarl.com) 、[视频](https://www.bilibili.com/video/BV1fA4y1o715)
+- 相关链接：[文章](https://programmercarl.com)、[视频](https://www.bilibili.com/video/BV1fA4y1o715)
 - 思路
 - 看完 [代码随想录](https://programmercarl.com) 之后的想法：
 - 实现过程中遇到的困难：

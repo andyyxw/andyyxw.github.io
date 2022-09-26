@@ -4,6 +4,8 @@ tags:
   - LeetCode
   - 代码随想录
   - 二分法
+  - 双指针
+  - 数组
 categories:
   - 算法
 description: ' '
@@ -18,7 +20,7 @@ updated: 2022-09-22 23:29:30
 
 ### [LeetCode-704.二分查找](https://leetcode.cn/problems/binary-search/)
 
-- 相关链接：[文章](https://programmercarl.com/0704.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.html#_704-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE) 、[视频](https://www.bilibili.com/video/BV1fA4y1o715)
+- 相关链接：[文章](https://programmercarl.com/0704.%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE.html#_704-%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE)、[视频](https://www.bilibili.com/video/BV1fA4y1o715)
 - 思路：
   - 使用双指针二分法，确定左右区间分别为数组的起点和终点，每次取中间元素`mid`跟`target`对比：
     - 如果`mid`较小，收缩左区间到`mid`；
