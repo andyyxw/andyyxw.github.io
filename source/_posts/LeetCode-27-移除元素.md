@@ -3,9 +3,9 @@ title: LeetCode-27.移除元素
 tags:
   - LeetCode
   - 代码随想录
+  - 数组
   - 双指针
   - 快慢指针
-  - 数组
 categories:
   - 算法
 description: ' '
@@ -26,6 +26,7 @@ updated: 2022-09-23 04:52:00
 - 看完 [代码随想录](https://programmercarl.com/0027.%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0.html#_27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0) 之后的想法：
   - 原来不需要排序，只遍历一遍就可以，原地修改数组
 - 代码：
+  - 快慢指针
   ```ts
     function removeElement(nums: number[], val: number): number {
       let slow = 0, // 慢指针指向新数组的元素

@@ -3,9 +3,9 @@ title: LeetCode-704.二分查找
 tags:
   - LeetCode
   - 代码随想录
+  - 数组
   - 二分法
   - 双指针
-  - 数组
 categories:
   - 算法
 description: ' '
