@@ -32,10 +32,11 @@ updated: 2022-09-29 17:07:26
   ```ts
   function generateMatrix(n: number): number[][] {
     const res: number[][] = Array.from(Array(n), () => Array(n)),
-      mid = n >>> 1
-    let offset = 0,
+      loop = n >>> 1 // 需要的旋转圈数
+    let offset = 0, // 当前已旋转圈数
       count = 1
-    while (offset < mid) {
+    // 循环不变量规则：每条边遍历时均使用左开右闭区间
+    while (offset < loop) {
       let row = offset,
         col = offset
       while (col < n - offset - 1) res[row][col++] = count++
@@ -44,7 +45,8 @@ updated: 2022-09-29 17:07:26
       while (row > offset) res[row--][col] = count++
       offset++
     }
-    if (n & 1) res[mid][mid] = count
+    // 如果n是奇数，一定剩下中心点没有赋值
+    if (n & 1) res[loop][loop] = count
     return res
   }
   ```
