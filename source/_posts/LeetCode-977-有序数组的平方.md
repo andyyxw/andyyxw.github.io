@@ -30,24 +30,24 @@ date: 2022-09-23 05:02:43
 - 代码：
   - 双指针
     ```ts
-      function sortedSquares(nums: number[]): number[] {
-        const ans: number[] = Array(nums.length)
-        let left = 0,
-          right = nums.length - 1,
-          i = nums.length - 1
-        while (left <= right) {
-          const dLeft = Math.pow(nums[left], 2),
-            dRight = Math.pow(nums[right], 2)
-          if (dLeft > dRight) {
-            ans[i--] = dLeft
-            left++
-          } else {
-            ans[i--] = dRight
-            right--
-          }
+    function sortedSquares(nums: number[]): number[] {
+      const ans: number[] = Array(nums.length)
+      let left = 0,
+        right = nums.length - 1,
+        i = nums.length - 1
+      while (left <= right) {
+        const dLeft = Math.pow(nums[left], 2),
+          dRight = Math.pow(nums[right], 2)
+        if (dLeft > dRight) {
+          ans[i--] = dLeft
+          left++
+        } else {
+          ans[i--] = dRight
+          right--
         }
-        return ans
       }
+      return ans
+    }
     ```
     时间复杂度：O(n)
     空间复杂度：O(1)

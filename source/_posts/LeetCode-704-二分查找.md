@@ -33,35 +33,35 @@ updated: 2022-09-22 23:29:30
 - 代码：
   - 二分法（左闭右闭）
     ```ts
-      function search(nums: number[], target: number): number {
-        let mid: number,
-          left = 0,
-          right = nums.length - 1
-        while (left <= right) {
-          mid = left + ((right - left) >> 1)
-          if (nums[mid] === target) return mid
-          if (nums[mid] < target) left = mid + 1
-          else right = mid - 1
-        }
-        return -1
+    function search(nums: number[], target: number): number {
+      let mid: number,
+        left = 0,
+        right = nums.length - 1
+      while (left <= right) {
+        mid = left + ((right - left) >> 1)
+        if (nums[mid] === target) return mid
+        if (nums[mid] < target) left = mid + 1
+        else right = mid - 1
       }
+      return -1
+    }
     ```
     时间复杂度：O($\log n$)
     空间复杂度：O(1)
   - 二分法（左闭右开）
     ```ts
-      function search(nums: number[], target: number): number {
-        let mid: number, 
-          left = 0,
-          right = nums.length
-        while (left < right) {
-          mid = left + ((right - left) >> 1)
-          if (nums[mid] === target) return mid
-          if (nums[mid] < target) left = mid + 1
-          else right = mid
-        }
-        return -1
+    function search(nums: number[], target: number): number {
+      let mid: number, 
+        left = 0,
+        right = nums.length
+      while (left < right) {
+        mid = left + ((right - left) >> 1)
+        if (nums[mid] === target) return mid
+        if (nums[mid] < target) left = mid + 1
+        else right = mid
       }
+      return -1
+    }
     ```
     时间复杂度：O($\log n$)
     空间复杂度：O(1)

@@ -32,26 +32,25 @@ updated: 2022-09-27 19:19:09
 - 实现过程中遇到的困难：
   - 边界条件、窗口滑动的时机、统计子数组长度 这些点都需要注意，容易出错
 - 代码：
-  - 滑动窗口
-    ```ts
-      function minSubArrayLen(target: number, nums: number[]): number {
-        const len = nums.length
-        let res = len + 1,
-          left = 0,
-          right = 0,
-          sum = 0
-        while (right < len) {
-          sum += nums[right++]
-          while (sum >= target) {
-            res = Math.min(res, right - left)
-            sum -= nums[left++]
-          }
-        }
-        return res > len ? 0: res
+  ```ts
+  function minSubArrayLen(target: number, nums: number[]): number {
+    const len = nums.length
+    let res = len + 1,
+      left = 0,
+      right = 0,
+      sum = 0
+    while (right < len) {
+      sum += nums[right++]
+      while (sum >= target) {
+        res = Math.min(res, right - left)
+        sum -= nums[left++]
       }
-    ```
-    时间复杂度：O(n)
-    空间复杂度：O(1)
+    }
+    return res > len ? 0: res
+  }
+  ```
+  时间复杂度：O(n)
+  空间复杂度：O(1)
 
 ### 收获
 
