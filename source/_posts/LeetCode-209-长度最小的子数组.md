@@ -22,7 +22,7 @@ updated: 2022-09-27 19:19:09
 
 - [代码随想录](https://programmercarl.com/0209.长度最小的子数组.html)
 
-<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=384964151&bvid=BV1tZ4y1q7XE&cid=745986197&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=384964151&bvid=BV1tZ4y1q7XE&cid=745986197&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### 思路
 

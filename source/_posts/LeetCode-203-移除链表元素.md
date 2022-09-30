@@ -20,7 +20,7 @@ updated: 2022-09-30 16:19:28
 
 - [代码随想录](https://programmercarl.com/0203.移除链表元素.html)
 
-<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=600158049&bvid=BV18B4y1s7R9&cid=753794207&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=600158049&bvid=BV18B4y1s7R9&cid=753794207&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### 思路
 

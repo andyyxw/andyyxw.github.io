@@ -22,7 +22,7 @@ updated: 2022-09-22 23:29:30
 
 - [代码随想录](https://programmercarl.com/0704.二分查找.html)
 
-<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=896855273&bvid=BV1fA4y1o715&cid=783305542&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=896855273&bvid=BV1fA4y1o715&cid=783305542&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### 思路
 

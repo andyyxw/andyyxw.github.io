@@ -23,7 +23,7 @@ updated: 2022-09-29 17:07:26
 
 - [代码随想录](https://programmercarl.com/0059.螺旋矩阵II.html)
 
-<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=855058314&bvid=BV1SL4y1N7mV&cid=748302443&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=855058314&bvid=BV1SL4y1N7mV&cid=748302443&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### 思路
 

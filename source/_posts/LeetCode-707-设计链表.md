@@ -20,7 +20,7 @@ updated: 2022-09-30 18:23:55
 
 - [代码随想录](https://programmercarl.com/0707.设计链表.html)
 
-<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=685492340&bvid=BV1FU4y1X7WD&cid=758264222&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=685492340&bvid=BV1FU4y1X7WD&cid=758264222&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### 思路
 

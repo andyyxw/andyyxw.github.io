@@ -20,7 +20,7 @@ date: 2022-09-23 05:02:43
 
 - [代码随想录](https://programmercarl.com/0977.有序数组的平方.html)
 
-<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=597240875&bvid=BV1QB4y1D7ep&cid=737799572&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=597240875&bvid=BV1QB4y1D7ep&cid=737799572&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### 思路
 

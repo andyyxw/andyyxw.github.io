@@ -22,7 +22,7 @@ updated: 2022-09-30 20:52:51
 
 - [代码随想录](https://programmercarl.com/0206.翻转链表.html)
 
-<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=598107226&bvid=BV1nB4y1i7eL&cid=763421475&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=598107226&bvid=BV1nB4y1i7eL&cid=763421475&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### 思路
 
