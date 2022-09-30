@@ -3,6 +3,7 @@ title: LeetCode-203.移除链表元素
 tags:
   - LeetCode
   - 代码随想录
+  - 链表
 categories:
   - 算法
 description: ' '
@@ -19,7 +20,7 @@ updated: 2022-09-30 16:19:28
 
 - 相关链接：[文章](https://programmercarl.com/0203.%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0.html)、[视频](https://www.bilibili.com/video/BV18B4y1s7R9/?spm_id_from=333.788&vd_source=71d285511d98d6f3acb381e2ee160233)
 - 思路：
-  - 生成一个虚拟头节点`dummyHead`，将它的next指向head（这样就不需要单独处理头节点了，使得处理方法统一，代码更清爽）
+  - 生成一个虚拟头节点`dummyHead`
   - 然后从`dummyHead`开始完整的遍历链表：判断当前节点的后一个节点val是否是否是目标值，如果是则将当前节点的next指向下下个节点（即跳过目标节点，从而达到删除效果）
 - 看完 [代码随想录](https://programmercarl.com/0203.%E7%A7%BB%E9%99%A4%E9%93%BE%E8%A1%A8%E5%85%83%E7%B4%A0.html) 之后的想法：
   - 与我想法一致
@@ -55,4 +56,4 @@ updated: 2022-09-30 16:19:28
 
 ### 收获
 
-- [链表](/tags/链表/) 题目中通常可以使用*虚拟头节点*来简化、统一处理逻辑
+- [链表](/tags/链表/) 进行增删操作时通常可以使用*虚拟头节点*，这样就不需要单独处理头节点了，使得处理方法统一，代码更清爽

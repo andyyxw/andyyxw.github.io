@@ -18,8 +18,11 @@ updated: {{ date }}
 
 - 相关链接：[文章](https://programmercarl.com)、[视频](https://www.bilibili.com/video/BV1fA4y1o715)
 - 思路：
+  - xxx
 - 看完 [代码随想录](https://programmercarl.com) 之后的想法：
+  - xxx
 - 实现过程中遇到的困难：
+  - xxx
 - 代码：
   ```ts
   
