@@ -12,22 +12,27 @@ date: {{ date }}
 updated: {{ date }}
 ---
 
-## <center>[LeetCode-]()</center>
+## [题目]()详解
 
-### 题目详解
+### 相关链接
 
-- 相关链接：[文章](https://programmercarl.com)、[视频](https://www.bilibili.com/video/BV1fA4y1o715)
-- 思路：
-  - xxx
-- 看完 [代码随想录](https://programmercarl.com) 之后的想法：
-  - xxx
-- 实现过程中遇到的困难：
-  - xxx
-- 代码：
-  ```ts
-  
-  ```
-  时间复杂度：O($\log n$)
-  空间复杂度：O(1)
+- [代码随想录]()
 
-### 收获
+<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=896855273&bvid=BV1fA4y1o715&cid=783305542&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+### 思路
+
+### 看完[代码随想录]()之后的想法
+
+### 实现过程中遇到的困难
+
+### 代码
+
+```ts TypeScript
+
+```
+
+时间复杂度：O($\log n$)
+空间复杂度：O(1)
+
+## 收获

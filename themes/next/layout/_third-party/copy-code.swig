@@ -23,8 +23,8 @@
       opacity: 0;
       padding: 2px 6px;
       position: absolute;
-      right: 4px;
-      top: 8px;
+      right: 2px;
+      top: 2px;
     }
 
     .highlight-wrap:hover .copy-btn,

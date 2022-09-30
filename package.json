@@ -6,8 +6,9 @@
     "version": "3.9.0"
   },
   "scripts": {
-    "prestart": "hexo clean",
     "start": "hexo server",
+    "prestart:public": "hexo clean && hexo generate",
+    "start:public": "hexo server --static --port 5000",
     "prepub": "hexo clean",
     "pub": "hexo generate --deploy",
     "postpub": "hexo backup"

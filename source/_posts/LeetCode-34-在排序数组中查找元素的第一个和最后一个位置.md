@@ -15,16 +15,20 @@ date: 2022-09-24 19:36:54
 updated: 2022-09-24 19:36:54
 ---
 
-## <center>[LeetCode-34.在排序数组中查找元素的第一个和最后一个位置](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)</center>
+## [题目](https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/)详解
 
-### 题目详解
+### 相关链接
 
-- 相关链接：[文章](https://programmercarl.com/0034.%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE.html)
-- 思路：
-  - 用双指针二分法
-- 看完 [代码随想录](https://programmercarl.com/0034.%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%92%8C%E6%9C%80%E5%90%8E%E4%B8%80%E4%B8%AA%E4%BD%8D%E7%BD%AE.html) 之后的想法：
-  - 我的解法只用了一次二分，找到目标值后再向两边延伸：
-    ```ts
+- [代码随想录](https://programmercarl.com/0034.在排序数组中查找元素的第一个和最后一个位置.html)
+
+### 思路
+
+- 用双指针二分法
+
+### 看完[代码随想录](https://programmercarl.com/0034.在排序数组中查找元素的第一个和最后一个位置.html)之后的想法
+
+- 我的解法只用了一次二分，找到目标值后再向两边延伸：
+    ```ts TypeScript
     function searchRange(nums: number[], target: number): number[] {
       let left = 0,
         right = nums.length - 1
@@ -44,11 +48,15 @@ updated: 2022-09-24 19:36:54
     }
     ```
     虽然ac了，但是因为最后的遍历寻找边界导致时间复杂度实际是O(n)，不符合题目要求的O($\log n$)
-- 实现过程中遇到的困难：
-  - 边界不好判断
-- 代码：
-  - 两遍二分法分别寻找左边界和右边界：
-    ```ts
+
+### 实现过程中遇到的困难
+
+- 边界不好判断
+
+### 代码
+
+- 两遍二分法分别寻找左边界和右边界：
+    ```ts TypeScript
     function searchRange(nums: number[], target: number): number[] {
       if (!nums.length) return [-1, -1]
       const leftBorder = getLeftBorder(nums, target)

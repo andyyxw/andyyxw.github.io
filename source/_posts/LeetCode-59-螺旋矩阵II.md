@@ -16,20 +16,31 @@ date: 2022-09-29 17:07:26
 updated: 2022-09-29 17:07:26
 ---
 
-## <center>[LeetCode-59.螺旋矩阵II](https://leetcode.cn/problems/spiral-matrix-ii/)</center>
 
-### 题目详解
+## [题目](https://leetcode.cn/problems/spiral-matrix-ii/)详解
 
-- 相关链接：[文章](https://programmercarl.com/0059.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II.html#_59-%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5ii)、[视频](https://www.bilibili.com/video/BV1SL4y1N7mV/?spm_id_from=pageDriver&vd_source=71d285511d98d6f3acb381e2ee160233)
-- 思路：
-  - 模拟顺时针旋转路线，每一圈有4个边，实际就是每圈包含4次遍历
-- 看完 [代码随想录](https://programmercarl.com/0059.%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5II.html#_59-%E8%9E%BA%E6%97%8B%E7%9F%A9%E9%98%B5ii) 之后的想法：
-  - 遵循*循环不变量规则*：对每条边的处理规则要统一。每条边的遍历都是左闭右开
-  - 需要转`Math.floor(n/2)`圈，如果`n`是奇数，跑完圈还剩下中心点再赋值一下
-- 实现过程中遇到的困难：
-  - 模拟旋转时循环的边界条件太多，很难处理
-- 代码：
-  ```ts
+### 相关链接
+
+- [代码随想录](https://programmercarl.com/0059.螺旋矩阵II.html)
+
+<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=855058314&bvid=BV1SL4y1N7mV&cid=748302443&page=1&high_quality=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+### 思路
+
+- 模拟顺时针旋转路线，每一圈有4个边，实际就是每圈包含4次遍历
+
+### 看完[代码随想录](https://programmercarl.com/0059.螺旋矩阵II.html)之后的想法
+
+- 遵循*循环不变量规则*：对每条边的处理规则要统一。每条边的遍历都是左闭右开
+- 需要转`Math.floor(n/2)`圈，如果`n`是奇数，跑完圈还剩下中心点再赋值一下
+
+### 实现过程中遇到的困难
+
+- 模拟旋转时循环的边界条件太多，很难处理
+
+### 代码
+
+  ```ts TypeScript
   function generateMatrix(n: number): number[][] {
     const res: number[][] = Array.from(Array(n), () => Array(n)),
       loop = n >>> 1 // 需要的旋转圈数
@@ -50,9 +61,10 @@ updated: 2022-09-29 17:07:26
     return res
   }
   ```
+
   时间复杂度：O($n^2$)
   空间复杂度：O($n^2$)
 
-### 收获
+## 收获
 
-- 理解了*循环不变量规则*，尤其是在 [模拟](/tags/模拟/) 类型的题中很有用
+- get了*循环不变量规则*，尤其是在[模拟](/tags/模拟/)类题目很有用。
