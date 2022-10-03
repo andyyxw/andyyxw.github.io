@@ -35,7 +35,7 @@ updated: 2022-10-03 10:20:58
 
 ### 看完[代码随想录](https://programmercarl.com/0019.删除链表的倒数第N个节点.html)之后的想法
 
-- 与我的思路一致
+- 快慢指针迭代法与我的思路一致，学会了递归倒退n法
 
 ### 实现过程中遇到的困难
 
@@ -43,33 +43,62 @@ updated: 2022-10-03 10:20:58
 
 ### 代码
 
-```ts TypeScript
-/**
- * Definition for singly-linked list.
- * class ListNode {
- *     val: number
- *     next: ListNode | null
- *     constructor(val?: number, next?: ListNode | null) {
- *         this.val = (val===undefined ? 0 : val)
- *         this.next = (next===undefined ? null : next)
- *     }
- * }
- */
+- 快慢指针
+  ```ts TypeScript
+  /**
+   * Definition for singly-linked list.
+   * class ListNode {
+   *     val: number
+   *     next: ListNode | null
+   *     constructor(val?: number, next?: ListNode | null) {
+   *         this.val = (val===undefined ? 0 : val)
+   *         this.next = (next===undefined ? null : next)
+   *     }
+   * }
+   */
 
-function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
-  let dummyHead = new ListNode()
-  dummyHead.next = head
-  let slow = dummyHead,
-    fast = dummyHead
-  while (n--) fast = fast.next
-  while (fast.next) {
-    slow = slow.next
-    fast = fast.next
+  function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+    let dummyHead = new ListNode()
+    dummyHead.next = head
+    let slow = dummyHead,
+      fast = dummyHead
+    while (n--) fast = fast.next
+    while (fast.next) {
+      slow = slow.next
+      fast = fast.next
+    }
+    slow.next = slow.next.next
+    return dummyHead.next
   }
-  slow.next = slow.next.next
-  return dummyHead.next
-}
-```
+  ```
+- 递归
+  ```ts TypeScript
+  /**
+  * Definition for singly-linked list.
+  * class ListNode {
+  *     val: number
+  *     next: ListNode | null
+  *     constructor(val?: number, next?: ListNode | null) {
+  *         this.val = (val===undefined ? 0 : val)
+  *         this.next = (next===undefined ? null : next)
+  *     }
+  * }
+  */
+
+  function removeNthFromEnd(head: ListNode | null, n: number): ListNode | null {
+    let dummyHead = new ListNode()
+    dummyHead.next = head
+    let count = 0
+    function recursion(node : ListNode | null) {
+      if (!node) return
+      recursion(node.next)
+      count++
+      if (count === n + 1) node.next = node.next.next
+    }
+    recursion(dummyHead)
+    return dummyHead.next
+  }
+  ```
 
 时间复杂度：O(n)
 空间复杂度：O(1)
