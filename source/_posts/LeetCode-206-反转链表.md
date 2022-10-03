@@ -5,7 +5,6 @@ tags:
   - 代码随想录
   - 链表
   - 双指针
-  - 迭代
 categories:
   - 算法
 description: ' '
