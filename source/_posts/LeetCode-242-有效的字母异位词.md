@@ -20,7 +20,7 @@ updated: 2022-10-03 22:23:09
 
 - [代码随想录](https://programmercarl.com/0242.有效的字母异位词.html)
 
-<iframe class="iframe_video"src="//player.bilibili.com/player.html?aid=428486350&bvid=BV1YG411p7BA&cid=772001165&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=428486350&bvid=BV1YG411p7BA&cid=772001165&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ### 思路
 
@@ -35,21 +35,37 @@ updated: 2022-10-03 22:23:09
 
 ### 代码
 
-```ts TypeScript
-function isAnagram(s: string, t: string): boolean {
-  if (s.length !== t.length) return false
-  const hash: number[] = Array(26).fill(0)
-  const base = 'a'.codePointAt(0)
-  for (let i = 0; i < s.length; i++) hash[s.codePointAt(i) - base]++
-  for (let i = 0; i < t.length; i++) {
-    hash[t.codePointAt(i) - base]--
-    if (hash[t.codePointAt(i) - base] < 0) return false
+- Hash Array
+  ```ts TypeScript
+  function isAnagram(s: string, t: string): boolean {
+    if (s.length !== t.length) return false
+    const hash: number[] = Array(26).fill(0)
+    const base = 'a'.codePointAt(0)
+    for (let i = 0; i < s.length; i++) hash[s.codePointAt(i) - base]++
+    for (let i = 0; i < t.length; i++) {
+      hash[t.codePointAt(i) - base]--
+      if (hash[t.codePointAt(i) - base] < 0) return false
+    }
+    return true
   }
-  return true
-}
-```
-
-时间复杂度：O(n)
-空间复杂度：O(1)
+  ```
+  时间复杂度：O(n)
+  空间复杂度：O(n)
+- Hash Map
+  ```ts TypeScript
+  function isAnagram(s: string, t: string): boolean {
+    if (s.length !== t.length) return false
+    const hash = new Map<string, number>()
+    for (const c of s) hash.set(c, (hash.get(c) || 0) + 1)
+    for (const c of t) {
+      const count = hash.get(c)
+      if (count > 0) hash.set(c, count  - 1)
+      else return false
+    }
+    return true
+  }
+  ```
+  时间复杂度：O(n)
+  空间复杂度：O(n)
 
 ## 收获
