@@ -32,17 +32,20 @@ updated: 2022-10-04 15:03:50
 
 ### 实现过程中遇到的困难
 
-- 对第一个数去重、对后两个数去重
+- 对第一个数去重
+- 对后两个数去重
 
 ### 代码
 
 ```ts TypeScript
 function threeSum(nums: number[]): number[][] {
+  const len = nums.length;
+  if (len < 3) return []
   const res: number[][] = []
   nums.sort((a, b) => a - b)
-  for (let i = 0, len = nums.length; i < len; i++) {
-    if (nums[i] > 0) break
-    if (nums[i] === nums[i - 1]) continue
+  for (let i = 0; i < len - 2; i++) {
+    if (nums[i] > 0) break // 剪枝
+    if (i > 0 && nums[i] === nums[i - 1]) continue // 去重
     let left = i + 1,
       right = len - 1
     while (left < right) {
@@ -51,8 +54,8 @@ function threeSum(nums: number[]): number[][] {
       else if (sum > 0) right--
       else {
         res.push([nums[i], nums[left++], nums[right--]])
-        while (left < right && nums[left] === nums[left - 1]) left++
-        while (left < right && nums[right] === nums[right + 1]) right--
+        while (left < right && nums[left] === nums[left - 1]) left++ // 去重
+        while (left < right && nums[right] === nums[right + 1]) right-- // 去重
       }
     }
   }
