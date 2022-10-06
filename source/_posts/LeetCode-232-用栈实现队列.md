@@ -3,8 +3,8 @@ title: LeetCode-232.用栈实现队列
 tags:
   - LeetCode
   - 代码随想录
-  - 栈
   - 队列
+  - 栈
 categories:
   - 算法
 description: ' '
@@ -55,23 +55,21 @@ class MyQueue {
     this.popStack = []
   }
 
-  transfer() {
-    if (this.popStack.length) return
-    while (this.pushStack.length) this.popStack.push(this.pushStack.pop())
-  }
-
   push(x: number): void {
     this.pushStack.push(x)
   }
 
   pop(): number {
-    this.transfer()
+    if (!this.popStack.length) {
+      while (this.pushStack.length) this.popStack.push(this.pushStack.pop())
+    }
     return this.popStack.pop()
   }
 
   peek(): number {
-    this.transfer()
-    return this.popStack[this.popStack.length - 1]
+    const top = this.pop()
+    this.popStack.push(top)
+    return top
   }
 
   empty(): boolean {
