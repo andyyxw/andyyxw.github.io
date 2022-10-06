@@ -4,6 +4,7 @@ tags:
   - LeetCode
   - 代码随想录
   - 字符串
+  - KMP
 categories:
   - 算法
 description: ' '
