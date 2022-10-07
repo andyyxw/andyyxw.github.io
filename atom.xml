@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://andy.city/"/>
-  <updated>2022-10-07T07:26:57.000Z</updated>
+  <updated>2022-10-07T08:12:13.000Z</updated>
   <id>https://andy.city/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode-239.滑动窗口最大值</title>
+    <link href="https://andy.city/archives/6798.html"/>
+    <id>https://andy.city/archives/6798.html</id>
+    <published>2022-10-07T08:12:13.000Z</published>
+    <updated>2022-10-07T08:12:13.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目详解"><a href="#题目详解" class="headerlink" title="题目详解"></a><a href="https://leetcode.cn/problems/sliding-window-maximum/" target="_blank" rel="noopener">题目</a>详解</h2><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul><li><a href="https://programmercarl.com/0239.滑动窗口最大值.html" target="_blank" rel="noopener">代码随想录</a></li></ul><iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=729559279&bvid=BV1XS4y1p7qj&cid=806301877&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen></iframe><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>使用双端队列实现单调递减队列，队顶始终是最大值</li><li>每次滑动窗口时，均有元素入队和出对，然后队顶元素就是当前窗口的最大值</li></ul><h3 id="看完代码随想录之后的想法"><a href="#看完代码随想录之后的想法" class="headerlink" title="看完代码随想录之后的想法"></a>看完<a href="https://programmercarl.com/0239.滑动窗口最大值.html" target="_blank" rel="noopener">代码随想录</a>之后的想法</h3><ul><li>将单调队列的代码抽离封装好，主流程十分简单已读</li></ul><h3 id="实现过程中遇到的困难"><a href="#实现过程中遇到的困难" class="headerlink" title="实现过程中遇到的困难"></a>实现过程中遇到的困难</h3><ul><li>实现单调队列时入队逻辑</li></ul><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight ts"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">maxSlidingWindow</span>(<span class="params">nums: <span class="built_in">number</span>[], k: <span class="built_in">number</span></span>): <span class="title">number</span>[] </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> res: <span class="built_in">number</span>[] = [],</span><br><span class="line">    queue = <span class="keyword">new</span> MonoQueue&lt;<span class="built_in">number</span>&gt;()</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">    queue.enqueue(nums[i])</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= k) queue.dequeue(nums[i - k])</span><br><span class="line">    <span class="keyword">if</span> (i &gt;= k - <span class="number">1</span>) res.push(queue.top())</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> res</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/** 单调递减队列 */</span></span><br><span class="line"><span class="keyword">class</span> MonoQueue&lt;T&gt; &#123;</span><br><span class="line">  queue: T[]</span><br><span class="line">  <span class="keyword">constructor</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.queue = []</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  enqueue(value: T): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="comment">// 比value小的都剔除</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">this</span>.queue.length &amp;&amp; value &gt; <span class="keyword">this</span>.queue[<span class="keyword">this</span>.queue.length - <span class="number">1</span>]) <span class="keyword">this</span>.queue.pop()</span><br><span class="line">    <span class="keyword">this</span>.queue.push(value)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  dequeue(value: T): <span class="built_in">void</span> &#123;</span><br><span class="line">    <span class="comment">// value可能在前面元素push的时候已经被剔除了</span></span><br><span class="line">    <span class="keyword">if</span> (value === <span class="keyword">this</span>.top()) <span class="keyword">this</span>.queue.shift()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  top(): T &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.queue[<span class="number">0</span>]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：O(n)<br>空间复杂度：O(n)</p><h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ul><li>学习了单调队列</li></ul>]]></content>
+    
+    <summary type="html">
+    
+       
+    
+    </summary>
+    
+      <category term="算法" scheme="https://andy.city/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="LeetCode" scheme="https://andy.city/tags/LeetCode/"/>
+    
+      <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
+    
+      <category term="队列" scheme="https://andy.city/tags/%E9%98%9F%E5%88%97/"/>
+    
+      <category term="单调队列" scheme="https://andy.city/tags/%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode-150.逆波兰表达式求值</title>
@@ -37,6 +65,8 @@
       <category term="LeetCode" scheme="https://andy.city/tags/LeetCode/"/>
     
       <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
+    
+      <category term="栈" scheme="https://andy.city/tags/%E6%A0%88/"/>
     
   </entry>
   
@@ -500,11 +530,11 @@
     
       <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
     
-      <category term="哈希表" scheme="https://andy.city/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
-    
       <category term="双指针" scheme="https://andy.city/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
       <category term="快慢指针" scheme="https://andy.city/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/"/>
+    
+      <category term="哈希表" scheme="https://andy.city/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
     
   </entry>
   
@@ -516,32 +546,6 @@
     <updated>2022-10-03T15:22:08.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="题目详解"><a href="#题目详解" class="headerlink" title="题目详解"></a><a href="https://leetcode.cn/problems/intersection-of-two-arrays/" target="_blank" rel="noopener">题目</a>详解</h2><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul><li><a href="https://programmercarl.com/0349.两个数组的交集.html" target="_blank" rel="noopener">代码随想录</a></li></ul><iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=258484486&bvid=BV1ba411S7wu&cid=774679429&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen></iframe><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol><li>选择一个合适的数据结构：本题需要判断一个元素在集合中是否出现过，典型的哈希表的使用场景，又不需要记录出现次数 那就用<code>hash set</code>即可</li></ol><h3 id="看完代码随想录之后的想法"><a href="#看完代码随想录之后的想法" class="headerlink" title="看完代码随想录之后的想法"></a>看完<a href="https://programmercarl.com/0349.两个数组的交集.html" target="_blank" rel="noopener">代码随想录</a>之后的想法</h3><ul><li>思路一致</li></ul><h3 id="实现过程中遇到的困难"><a href="#实现过程中遇到的困难" class="headerlink" title="实现过程中遇到的困难"></a>实现过程中遇到的困难</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight ts"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">intersection</span>(<span class="params">nums1: <span class="built_in">number</span>[], nums2: <span class="built_in">number</span>[]</span>): <span class="title">number</span>[] </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> hash = <span class="keyword">new</span> Set(nums1)</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.from(</span><br><span class="line">    nums2.reduce(</span><br><span class="line">      (acc, cur) =&gt; (hash.has(cur) &amp;&amp; acc.add(cur), acc),</span><br><span class="line">      <span class="keyword">new</span> Set&lt;<span class="built_in">number</span>&gt;()</span><br><span class="line">    )</span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：O(n)<br>空间复杂度：O(1)</p><h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2>]]></content>
-    
-    <summary type="html">
-    
-       
-    
-    </summary>
-    
-      <category term="算法" scheme="https://andy.city/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="LeetCode" scheme="https://andy.city/tags/LeetCode/"/>
-    
-      <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
-    
-      <category term="哈希表" scheme="https://andy.city/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode-242.有效的字母异位词</title>
-    <link href="https://andy.city/archives/6aa1.html"/>
-    <id>https://andy.city/archives/6aa1.html</id>
-    <published>2022-10-03T14:23:09.000Z</published>
-    <updated>2022-10-03T14:23:09.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目详解"><a href="#题目详解" class="headerlink" title="题目详解"></a><a href="https://leetcode.cn/problems/valid-anagram/" target="_blank" rel="noopener">题目</a>详解</h2><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul><li><a href="https://programmercarl.com/0242.有效的字母异位词.html" target="_blank" rel="noopener">代码随想录</a></li></ul><iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=428486350&bvid=BV1YG411p7BA&cid=772001165&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen></iframe><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>使用hash表记录每个字符出现的次数再比较</li></ul><h3 id="看完代码随想录之后的想法"><a href="#看完代码随想录之后的想法" class="headerlink" title="看完代码随想录之后的想法"></a>看完<a href="https://programmercarl.com/0242.有效的字母异位词.html" target="_blank" rel="noopener">代码随想录</a>之后的想法</h3><ul><li>原本我用的是hashMap，后来发现不需要，用数组即可</li><li>只创建一个hash数组即可，并且两个字符串只需要分别遍历一遍，一遍累加一遍累减即可</li></ul><h3 id="实现过程中遇到的困难"><a href="#实现过程中遇到的困难" class="headerlink" title="实现过程中遇到的困难"></a>实现过程中遇到的困难</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><ul><li><p>Hash Array</p><figure class="highlight ts"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isAnagram</span>(<span class="params">s: <span class="built_in">string</span>, t: <span class="built_in">string</span></span>): <span class="title">boolean</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (s.length !== t.length) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">const</span> hash: <span class="built_in">number</span>[] = <span class="built_in">Array</span>(<span class="number">26</span>).fill(<span class="number">0</span>)</span><br><span class="line">  <span class="keyword">const</span> base = <span class="string">'a'</span>.codePointAt(<span class="number">0</span>)</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; s.length; i++) hash[s.codePointAt(i) - base]++</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; t.length; i++) &#123;</span><br><span class="line">    hash[t.codePointAt(i) - base]--</span><br><span class="line">    <span class="keyword">if</span> (hash[t.codePointAt(i) - base] &lt; <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：O(n)<br>空间复杂度：O(n)</p></li><li><p>Hash Map</p><figure class="highlight ts"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isAnagram</span>(<span class="params">s: <span class="built_in">string</span>, t: <span class="built_in">string</span></span>): <span class="title">boolean</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (s.length !== t.length) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">const</span> hash = <span class="keyword">new</span> Map&lt;<span class="built_in">string</span>, <span class="built_in">number</span>&gt;()</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> c of s) hash.set(c, (hash.get(c) || <span class="number">0</span>) + <span class="number">1</span>)</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> c of t) &#123;</span><br><span class="line">    <span class="keyword">const</span> count = hash.get(c)</span><br><span class="line">    <span class="keyword">if</span> (count &gt; <span class="number">0</span>) hash.set(c, count  - <span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：O(n)<br>空间复杂度：O(n)</p></li></ul><h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2>]]></content>
     
     <summary type="html">
     
