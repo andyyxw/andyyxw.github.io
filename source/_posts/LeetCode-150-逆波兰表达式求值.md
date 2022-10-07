@@ -3,6 +3,7 @@ title: LeetCode-150.逆波兰表达式求值
 tags:
   - LeetCode
   - 代码随想录
+  - 栈
 categories:
   - 算法
 description: ' '
