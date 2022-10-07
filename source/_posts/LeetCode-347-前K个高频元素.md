@@ -3,6 +3,7 @@ title: LeetCode-347.前K个高频元素
 tags:
   - LeetCode
   - 代码随想录
+  - 队列
   - 优先队列
   - 堆
   - 小顶堆
