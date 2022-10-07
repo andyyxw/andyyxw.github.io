@@ -48,7 +48,7 @@ updated: 2022-09-24 19:07:46
       return left
     }
     ```
-    时间复杂度：O($\log n$)
+    时间复杂度：O(log n)
     空间复杂度：O(1)
 - 二分法（左闭右开）
     ```ts TypeScript
@@ -64,7 +64,7 @@ updated: 2022-09-24 19:07:46
       return left
     }
     ```
-    时间复杂度：O($\log n$)
+    时间复杂度：O(log n)
     空间复杂度：O(1)
 
 ## 收获

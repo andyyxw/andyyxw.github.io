@@ -63,7 +63,7 @@ function threeSum(nums: number[]): number[][] {
 }
 ```
 
-时间复杂度：O($n^2$)
+时间复杂度：O(n^2)
 空间复杂度：O(n)
 
 ## 收获

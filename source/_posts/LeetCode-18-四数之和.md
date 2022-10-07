@@ -67,7 +67,7 @@ function fourSum(nums: number[], target: number): number[][] {
 }
 ```
 
-时间复杂度：O($n^3$)
+时间复杂度：O(n^3)
 空间复杂度：O(n)
 
 ## 收获
