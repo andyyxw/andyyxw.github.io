@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://andy.city/"/>
-  <updated>2022-10-07T07:10:49.000Z</updated>
+  <updated>2022-10-07T07:26:57.000Z</updated>
   <id>https://andy.city/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode-150.逆波兰表达式求值</title>
+    <link href="https://andy.city/archives/f533.html"/>
+    <id>https://andy.city/archives/f533.html</id>
+    <published>2022-10-07T07:26:57.000Z</published>
+    <updated>2022-10-07T07:26:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目详解"><a href="#题目详解" class="headerlink" title="题目详解"></a><a href="https://leetcode.cn/problems/evaluate-reverse-polish-notation/" target="_blank" rel="noopener">题目</a>详解</h2><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul><li><a href="https://programmercarl.com/0150.逆波兰表达式求值.html" target="_blank" rel="noopener">代码随想录</a></li></ul><iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=387057277&bvid=BV1kd4y1o7on&cid=804365306&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen></iframe><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>遍历tokens：<ul><li>如果遇到数字入栈</li><li>如果遇到运算符，连续出栈两个数字进行运算，再将运算结果入栈用于后续计算</li></ul></li></ul><h3 id="看完代码随想录之后的想法"><a href="#看完代码随想录之后的想法" class="headerlink" title="看完代码随想录之后的想法"></a>看完<a href="https://programmercarl.com/0150.逆波兰表达式求值.html" target="_blank" rel="noopener">代码随想录</a>之后的想法</h3><ul><li>get了二进制取整小tip</li></ul><h3 id="实现过程中遇到的困难"><a href="#实现过程中遇到的困难" class="headerlink" title="实现过程中遇到的困难"></a>实现过程中遇到的困难</h3><ul><li>出栈两次得到的两个数字顺序与运算顺序时相反的</li><li>除法取整时需要处理一下</li></ul><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight ts"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">evalRPN</span>(<span class="params">tokens: <span class="built_in">string</span>[]</span>): <span class="title">number</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> stack: <span class="built_in">number</span>[] = []</span><br><span class="line">  <span class="comment">// 注意调用时传入的两个数字是依次出栈得到的，顺序是反的</span></span><br><span class="line">  <span class="keyword">const</span> map = &#123;</span><br><span class="line">    <span class="string">'+'</span>: <span class="function">(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>) =&gt;</span> b + a,</span><br><span class="line">    <span class="string">'-'</span>: <span class="function">(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>) =&gt;</span> b - a,</span><br><span class="line">    <span class="string">'*'</span>: <span class="function">(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>) =&gt;</span> b * a,</span><br><span class="line">    <span class="string">'/'</span>: <span class="function">(<span class="params">a: <span class="built_in">number</span>, b: <span class="built_in">number</span></span>) =&gt;</span> (b / a) | <span class="number">0</span>,</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> c of tokens) &#123;</span><br><span class="line">    <span class="keyword">if</span> (c <span class="keyword">in</span> map) stack.push(map[c](stack.pop(), stack.pop()))</span><br><span class="line">    <span class="keyword">else</span> stack.push(+c)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> stack[<span class="number">0</span>]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：O(n)<br>空间复杂度：O(n)</p><h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2>]]></content>
+    
+    <summary type="html">
+    
+       
+    
+    </summary>
+    
+      <category term="算法" scheme="https://andy.city/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="LeetCode" scheme="https://andy.city/tags/LeetCode/"/>
+    
+      <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode-1047.删除字符串中的所有相邻重复项</title>
@@ -533,30 +557,6 @@
       <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
     
       <category term="哈希表" scheme="https://andy.city/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法-链表-总结篇</title>
-    <link href="https://andy.city/archives/8be5.html"/>
-    <id>https://andy.city/archives/8be5.html</id>
-    <published>2022-10-03T13:48:58.000Z</published>
-    <updated>2022-10-03T13:48:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p><img src="https://cdn.jsdelivr.net/gh/andyyxw/images/img/algorithm_linked-list.png" alt="算法-链表-总结篇"></p><a id="more"></a><p>详见 <a href="https://programmercarl.com/链表总结篇.html" target="_blank" rel="noopener">代码随想录-链表总结篇</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;&lt;img src=&quot;https://cdn.jsdelivr.net/gh/andyyxw/images/img/algorithm_linked-list.png&quot; alt=&quot;算法-链表-总结篇&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://andy.city/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
-    
-      <category term="链表" scheme="https://andy.city/tags/%E9%93%BE%E8%A1%A8/"/>
     
   </entry>
   
