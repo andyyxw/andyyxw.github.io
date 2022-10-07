@@ -18,7 +18,7 @@ updated: {{ date }}
 
 - [代码随想录]()
 
-<iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=896855273&bvid=BV1fA4y1o715&cid=783305542&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<!-- class="iframe_video" -->
 
 ### 思路
 
