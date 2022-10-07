@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://andy.city/"/>
-  <updated>2022-10-07T06:00:25.000Z</updated>
+  <updated>2022-10-07T07:10:49.000Z</updated>
   <id>https://andy.city/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LeetCode-1047.删除字符串中的所有相邻重复项</title>
+    <link href="https://andy.city/archives/e442.html"/>
+    <id>https://andy.city/archives/e442.html</id>
+    <published>2022-10-07T07:10:49.000Z</published>
+    <updated>2022-10-07T07:10:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="题目详解"><a href="#题目详解" class="headerlink" title="题目详解"></a><a href="https://leetcode.cn/problems/remove-all-adjacent-duplicates-in-string/" target="_blank" rel="noopener">题目</a>详解</h2><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul><li><a href="https://programmercarl.com/1047.删除字符串中的所有相邻重复项.html" target="_blank" rel="noopener">代码随想录</a></li></ul><iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=216931465&bvid=BV12a411P7mw&cid=801359937&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen></iframe><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>遍历字符串：<ul><li>如果当前元素与栈顶元素相同，则进行出栈</li><li>如果不相同，则入栈</li></ul></li><li>最后栈里的所有元素就是结果</li></ul><h3 id="看完代码随想录之后的想法"><a href="#看完代码随想录之后的想法" class="headerlink" title="看完代码随想录之后的想法"></a>看完<a href="https://programmercarl.com/1047.删除字符串中的所有相邻重复项.html" target="_blank" rel="noopener">代码随想录</a>之后的想法</h3><ul><li>思路一致</li></ul><h3 id="实现过程中遇到的困难"><a href="#实现过程中遇到的困难" class="headerlink" title="实现过程中遇到的困难"></a>实现过程中遇到的困难</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight ts"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeDuplicates</span>(<span class="params">s: <span class="built_in">string</span></span>): <span class="title">string</span> </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> stack: <span class="built_in">string</span>[] = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> c of s) &#123;</span><br><span class="line">    <span class="keyword">if</span> (stack.length &amp;&amp; stack[stack.length - <span class="number">1</span>] === c) stack.pop()</span><br><span class="line">    <span class="keyword">else</span> stack.push(c)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> stack.join(<span class="string">''</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：O(n)<br>空间复杂度：O(n)</p><h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2>]]></content>
+    
+    <summary type="html">
+    
+       
+    
+    </summary>
+    
+      <category term="算法" scheme="https://andy.city/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="LeetCode" scheme="https://andy.city/tags/LeetCode/"/>
+    
+      <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
+    
+      <category term="栈" scheme="https://andy.city/tags/%E6%A0%88/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LeetCode-20.有效的括号</title>
     <link href="https://andy.city/archives/c7da.html"/>
     <id>https://andy.city/archives/c7da.html</id>
     <published>2022-10-07T06:00:25.000Z</published>
     <updated>2022-10-07T06:00:25.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="题目详解"><a href="#题目详解" class="headerlink" title="题目详解"></a><a href="https://leetcode.cn/problems/valid-parentheses/" target="_blank" rel="noopener">题目</a>详解</h2><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul><li><a href="https://programmercarl.com/0020.有效的括号.html" target="_blank" rel="noopener">代码随想录</a></li></ul><iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=301823875&bvid=BV1AF411w78g&cid=799270643&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen></iframe><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>遍历字符串：遇到左括号-&gt;入栈，遇到右括号-&gt;出栈并判断出栈元素是否与当前的遍历到的右括号成对，不成对则终止</li></ul><h3 id="看完代码随想录之后的想法"><a href="#看完代码随想录之后的想法" class="headerlink" title="看完代码随想录之后的想法"></a>看完<a href="https://programmercarl.com/0020.有效的括号.html" target="_blank" rel="noopener">代码随想录</a>之后的想法</h3><ul><li>使用字典来简化判断逻辑</li></ul><h3 id="实现过程中遇到的困难"><a href="#实现过程中遇到的困难" class="headerlink" title="实现过程中遇到的困难"></a>实现过程中遇到的困难</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight ts"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isValid</span>(<span class="params">s: <span class="built_in">string</span></span>): <span class="title">boolean</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (s.length % <span class="number">2</span> !== <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">const</span> stack: <span class="built_in">string</span>[] = []</span><br><span class="line">  <span class="keyword">const</span> map = &#123;</span><br><span class="line">    <span class="string">'('</span>: <span class="string">')'</span>,</span><br><span class="line">    <span class="string">'['</span>: <span class="string">']'</span>,</span><br><span class="line">    <span class="string">'&#123;'</span>: <span class="string">'&#125;'</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> c of s) &#123;</span><br><span class="line">    <span class="keyword">if</span> (c <span class="keyword">in</span> map) stack.push(c)</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (map[stack.pop()] !== c) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> !stack.length</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：O(n)<br>空间复杂度：O(n)</p><h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ul><li><strong>数据结构与算法的应用往往隐藏在我们看不到的地方</strong></li></ul>]]></content>
+    <content type="html"><![CDATA[<h2 id="题目详解"><a href="#题目详解" class="headerlink" title="题目详解"></a><a href="https://leetcode.cn/problems/valid-parentheses/" target="_blank" rel="noopener">题目</a>详解</h2><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul><li><a href="https://programmercarl.com/0020.有效的括号.html" target="_blank" rel="noopener">代码随想录</a></li></ul><iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=301823875&bvid=BV1AF411w78g&cid=799270643&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen></iframe><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ul><li>遍历字符串<ul><li>遇到左括号-&gt;入栈;</li><li>遇到右括号-&gt;出栈 并判断出栈元素是否与当前的遍历到的右括号成对，不成对则终止</li></ul></li></ul><h3 id="看完代码随想录之后的想法"><a href="#看完代码随想录之后的想法" class="headerlink" title="看完代码随想录之后的想法"></a>看完<a href="https://programmercarl.com/0020.有效的括号.html" target="_blank" rel="noopener">代码随想录</a>之后的想法</h3><ul><li>使用字典来简化判断逻辑</li></ul><h3 id="实现过程中遇到的困难"><a href="#实现过程中遇到的困难" class="headerlink" title="实现过程中遇到的困难"></a>实现过程中遇到的困难</h3><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight ts"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isValid</span>(<span class="params">s: <span class="built_in">string</span></span>): <span class="title">boolean</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (s.length % <span class="number">2</span> !== <span class="number">0</span>) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  <span class="keyword">const</span> stack: <span class="built_in">string</span>[] = []</span><br><span class="line">  <span class="keyword">const</span> map = &#123;</span><br><span class="line">    <span class="string">'('</span>: <span class="string">')'</span>,</span><br><span class="line">    <span class="string">'['</span>: <span class="string">']'</span>,</span><br><span class="line">    <span class="string">'&#123;'</span>: <span class="string">'&#125;'</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> c of s) &#123;</span><br><span class="line">    <span class="keyword">if</span> (c <span class="keyword">in</span> map) stack.push(c)</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (map[stack.pop()] !== c) <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> !stack.length</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：O(n)<br>空间复杂度：O(n)</p><h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ul><li><strong>数据结构与算法的应用往往隐藏在我们看不到的地方</strong></li></ul>]]></content>
     
     <summary type="html">
     
@@ -176,11 +202,11 @@
     
       <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
     
-      <category term="字符串" scheme="https://andy.city/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
       <category term="双指针" scheme="https://andy.city/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
       <category term="快慢指针" scheme="https://andy.city/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/"/>
+    
+      <category term="字符串" scheme="https://andy.city/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
@@ -206,11 +232,11 @@
     
       <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
     
-      <category term="字符串" scheme="https://andy.city/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
       <category term="双指针" scheme="https://andy.city/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
     
       <category term="快慢指针" scheme="https://andy.city/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/"/>
+    
+      <category term="字符串" scheme="https://andy.city/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
@@ -236,9 +262,9 @@
     
       <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
     
-      <category term="字符串" scheme="https://andy.city/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
       <category term="双指针" scheme="https://andy.city/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+      <category term="字符串" scheme="https://andy.city/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
@@ -264,9 +290,9 @@
     
       <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
     
-      <category term="字符串" scheme="https://andy.city/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
       <category term="双指针" scheme="https://andy.city/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+      <category term="字符串" scheme="https://andy.city/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
@@ -292,9 +318,9 @@
     
       <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
     
-      <category term="字符串" scheme="https://andy.city/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
-    
       <category term="双指针" scheme="https://andy.city/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
+    
+      <category term="字符串" scheme="https://andy.city/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/"/>
     
   </entry>
   
@@ -529,36 +555,6 @@
     
     
       <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
-    
-      <category term="链表" scheme="https://andy.city/tags/%E9%93%BE%E8%A1%A8/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>LeetCode-142.环形链表II</title>
-    <link href="https://andy.city/archives/c4d8.html"/>
-    <id>https://andy.city/archives/c4d8.html</id>
-    <published>2022-10-03T12:19:14.000Z</published>
-    <updated>2022-10-03T12:19:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="题目详解"><a href="#题目详解" class="headerlink" title="题目详解"></a><a href="https://leetcode.cn/problems/linked-list-cycle-ii/" target="_blank" rel="noopener">题目</a>详解</h2><h3 id="相关链接"><a href="#相关链接" class="headerlink" title="相关链接"></a>相关链接</h3><ul><li><a href="https://programmercarl.com/0142.环形链表II.html" target="_blank" rel="noopener">代码随想录</a></li></ul><iframe class="iframe_video" src="//player.bilibili.com/player.html?aid=300762117&bvid=BV1if4y1d7ob&cid=770074935&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen></iframe><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p><img src="https://cdn.jsdelivr.net/gh/andyyxw/images/img/circular_linked_list.png" alt="环形链表"></p><ul><li>快慢指针。同起点，慢指针每次走一步，快指针每次走2步。如果链表有环 经数学分析可知：<ol><li>两个指针一定会在环内某一点相遇<ol><li>为什么在环内一定会相遇？因为快指针与慢指针的相对速度差了一步，即快指针以一步的相对速度去追慢指针，一定能追到！</li><li>相遇位置不确定，不一定是入环点</li></ol></li><li>相遇时快指针走的路程是慢指针的2倍</li><li>快指针比慢指针在环内多跑了几圈，路程设为m（即<code>m</code>是环长的整数倍）</li><li>综上分析可知：快指针走的总路程是<code>2m</code>，慢指针走的总路程是<code>m</code></li><li>现在只需要分析慢指针：<ol><li>慢指针的轨迹可以分为两部分：<ol><li>慢指针在入环前走了一段路程，设为<code>x</code></li><li>入环后走了一段路程后与快指针相遇，设为<code>y</code></li></ol></li><li>得到<code>x + y = m</code></li><li>回头看看我们的目标是找到入环点，一起分析可发现：<ol><li>两个指针相遇时，慢指针在环内走的路程是<code>y</code>，此时距离入环点的路程是未知的</li><li>但是如果再继续走一段路程<code>x</code>时，则慢指针在环内的总路程达到<code>x + y = m</code>，而<code>m</code>是环长的整数倍，也就是说慢指针跑了整数圈又回到了入环点</li><li>我们不知道<code>x</code>、<code>y</code>的实际长度，但是时机我们是有办法捕获到的：<ol><li>已知<code>x</code>就是起点与入环点的路程，而慢指针在相遇点跑了路程<code>x</code>也到达入环点</li><li>所以解决办法就是慢指针在相遇点开始跑时，同时起点也有一个指针开始跑，同路程同速度一定会在入环点相遇</li></ol></li></ol></li></ol></li></ol></li></ul><h3 id="看完代码随想录之后的想法"><a href="#看完代码随想录之后的想法" class="headerlink" title="看完代码随想录之后的想法"></a>看完<a href="https://programmercarl.com/0142.环形链表II.html" target="_blank" rel="noopener">代码随想录</a>之后的想法</h3><ul><li>解法之前学习过，思路一致</li><li>我的解法主要是靠推理，卡尔给出了数学证明</li></ul><h3 id="实现过程中遇到的困难"><a href="#实现过程中遇到的困难" class="headerlink" title="实现过程中遇到的困难"></a>实现过程中遇到的困难</h3><ul><li>入环点、相遇点的具体位置、距离都是未知的，只能通过特殊时机来巧妙地推理</li></ul><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight ts"><figcaption><span>TypeScript</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     val: number</span></span><br><span class="line"><span class="comment"> *     next: ListNode | null</span></span><br><span class="line"><span class="comment"> *     constructor(val?: number, next?: ListNode | null) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = (val===undefined ? 0 : val)</span></span><br><span class="line"><span class="comment"> *         this.next = (next===undefined ? null : next)</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">detectCycle</span>(<span class="params">head: ListNode | <span class="literal">null</span></span>): <span class="title">ListNode</span> | <span class="title">null</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (!head) <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">  <span class="keyword">let</span> slow = head,</span><br><span class="line">    fast = head</span><br><span class="line">  <span class="keyword">while</span> (fast &amp;&amp; fast.next) &#123;</span><br><span class="line">    slow = slow.next</span><br><span class="line">    fast = fast.next.next</span><br><span class="line">    <span class="keyword">if</span> (slow === fast) &#123;</span><br><span class="line">      <span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (slow === head) <span class="keyword">return</span> head</span><br><span class="line">        slow = slow.next</span><br><span class="line">        head = head.next</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">null</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>时间复杂度：O(n)<br>空间复杂度：O(1)</p><h2 id="收获"><a href="#收获" class="headerlink" title="收获"></a>收获</h2><ul><li>活学活用指针，就像本题不需要知道入环点、相遇点的实际位置（实际上也无法得知，不同链表是不同的），但是只需要通过合理的推理能解决问题即可</li></ul>]]></content>
-    
-    <summary type="html">
-    
-       
-    
-    </summary>
-    
-      <category term="算法" scheme="https://andy.city/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="LeetCode" scheme="https://andy.city/tags/LeetCode/"/>
-    
-      <category term="代码随想录" scheme="https://andy.city/tags/%E4%BB%A3%E7%A0%81%E9%9A%8F%E6%83%B3%E5%BD%95/"/>
-    
-      <category term="双指针" scheme="https://andy.city/tags/%E5%8F%8C%E6%8C%87%E9%92%88/"/>
-    
-      <category term="快慢指针" scheme="https://andy.city/tags/%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88/"/>
     
       <category term="链表" scheme="https://andy.city/tags/%E9%93%BE%E8%A1%A8/"/>
     
