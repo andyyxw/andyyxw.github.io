@@ -43,9 +43,9 @@ updated: 2022-10-07 18:10:56
 
 ```ts TypeScript
 function topKFrequent(nums: number[], k: number): number[] {
-  const statistic: { [k: number]: number } = nums.reduce((acc, cur) => (acc[cur] = (acc[cur] || 0) + 1, acc), {})
+  const data: { [k: number]: number } = nums.reduce((acc, cur) => (acc[cur] = (acc[cur] || 0) + 1, acc), {})
   const queue = new MinPriorityQueue({ priority: (item: [number, number]) => item[1] })
-  for (const item of Object.entries(statistic)) {
+  for (const item of Object.entries(data)) {
     queue.enqueue(item)
     if (queue.size() > k) queue.dequeue()
   }
